@@ -1134,6 +1134,14 @@ if mode == "🏠 Start":
       .st-key-hotspot_card_simulation{left:53.7%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
       .st-key-hotspot_card_errors{left:67.3%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
       .st-key-hotspot_card_progress{left:80.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+
+      /* Cards 4–6 need their own horizontal correction.
+         Cards 1–3 stay exactly where they are. */
+      .st-key-hotspot_card_simulation,
+      .st-key-hotspot_card_errors,
+      .st-key-hotspot_card_progress{
+          transform:translate(50px,18px)!important;
+      }
     </style>
     """, unsafe_allow_html=True)
 
