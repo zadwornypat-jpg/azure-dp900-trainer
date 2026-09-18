@@ -1041,6 +1041,9 @@ if mode == "🏠 Start":
       .stApp{background:#102c46!important}
       .block-container{max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
       div[data-testid="stVerticalBlock"]{gap:0!important}
+      iframe[title="streamlit_image_coordinates.streamlit_image_coordinates"] {
+    cursor: pointer !important;
+}
     </style>
     """, unsafe_allow_html=True)
 
