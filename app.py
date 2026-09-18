@@ -1034,6 +1034,9 @@ if mode == "🏠 Start":
         st.error("dashboard_background.jpeg fehlt im Projektordner.")
         st.stop()
 
+    # The dashboard stays one unchanged image. Real Streamlit buttons are placed
+    # transparently above the visible menu items and cards. This keeps the
+    # session/login intact while giving us genuine hover + pointer behaviour.
     st.markdown("""
     <style>
       header[data-testid="stHeader"]{display:none!important}
@@ -1041,40 +1044,128 @@ if mode == "🏠 Start":
       .stApp{background:#102c46!important}
       .block-container{max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
       div[data-testid="stVerticalBlock"]{gap:0!important}
-      iframe[title="streamlit_image_coordinates.streamlit_image_coordinates"] {
-    cursor: pointer !important;
-}
+
+      /* Dashboard is the positioning surface for all hotspots. */
+      .st-key-dashboard_overlay{
+          position:relative!important;
+          width:100%!important;
+          overflow:visible!important;
+      }
+      .st-key-dashboard_overlay div[data-testid="stImage"]{
+          margin:0!important;
+          padding:0!important;
+      }
+      .st-key-dashboard_overlay div[data-testid="stImage"] img{
+          display:block!important;
+          width:100%!important;
+          height:auto!important;
+      }
+
+      /* Every hotspot is a REAL Streamlit button, but visually transparent. */
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"]{
+          position:absolute!important;
+          z-index:30!important;
+          margin:0!important;
+          padding:0!important;
+      }
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"] .stButton,
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"] .stButton > button{
+          width:100%!important;
+          height:100%!important;
+          min-height:0!important;
+          margin:0!important;
+          padding:0!important;
+      }
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"] button{
+          cursor:pointer!important;
+          border:1px solid transparent!important;
+          border-radius:12px!important;
+          background:rgba(255,255,255,0)!important;
+          box-shadow:none!important;
+          color:transparent!important;
+          font-size:0!important;
+          transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease!important;
+      }
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"] button p{
+          color:transparent!important;
+          font-size:0!important;
+      }
+      .st-key-dashboard_overlay [class*="st-key-hotspot_"] button:focus{
+          outline:none!important;
+          box-shadow:none!important;
+      }
+
+      /* Left navigation: hand + gentle highlight. */
+      .st-key-dashboard_overlay [class*="st-key-hotspot_menu_"] button:hover{
+          cursor:pointer!important;
+          transform:translateX(3px)!important;
+          background:rgba(105,181,231,.13)!important;
+          border-color:rgba(178,222,250,.20)!important;
+          box-shadow:0 5px 16px rgba(0,0,0,.12)!important;
+      }
+
+      /* Six dashboard cards: hand + lift/glow. */
+      .st-key-dashboard_overlay [class*="st-key-hotspot_card_"] button:hover{
+          cursor:pointer!important;
+          transform:translateY(-6px) scale(1.012)!important;
+          background:rgba(255,255,255,.08)!important;
+          border-color:rgba(255,255,255,.36)!important;
+          box-shadow:0 15px 28px rgba(12,36,62,.24)!important;
+      }
+
+      /* LEFT MENU — coordinates match the existing dashboard click map. */
+      .st-key-hotspot_menu_start{left:.7%!important;top:15.8%!important;width:9.8%!important;height:6.1%!important}
+      .st-key-hotspot_menu_cards{left:.7%!important;top:22.0%!important;width:9.8%!important;height:5.7%!important}
+      .st-key-hotspot_menu_practice{left:.7%!important;top:28.0%!important;width:9.8%!important;height:5.7%!important}
+      .st-key-hotspot_menu_exam{left:.7%!important;top:34.0%!important;width:9.8%!important;height:5.7%!important}
+      .st-key-hotspot_menu_simulation{left:.7%!important;top:40.0%!important;width:9.8%!important;height:5.7%!important}
+      .st-key-hotspot_menu_errors{left:.7%!important;top:46.0%!important;width:9.8%!important;height:5.7%!important}
+      .st-key-hotspot_menu_progress{left:.7%!important;top:52.0%!important;width:9.8%!important;height:5.7%!important}
+
+      /* SIX LARGE CARDS. */
+      .st-key-hotspot_card_cards{left:12.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_practice{left:26.5%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_exam{left:40.1%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_simulation{left:53.7%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_errors{left:67.3%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_progress{left:80.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
     </style>
     """, unsafe_allow_html=True)
 
     dashboard_image = Image.open(target_path)
-    original_w, original_h = dashboard_image.size
 
-    click = streamlit_image_coordinates(
-        dashboard_image,
-        key="dashboard_click_map",
-        use_column_width="always",
-    )
+    with st.container(key="dashboard_overlay"):
+        st.image(dashboard_image, use_container_width=True)
 
-    if click:
-        x = click["x"] / original_w
-        y = click["y"] / original_h
+        # Left menu hotspots
+        if st.button("Start", key="hotspot_menu_start"):
+            go_to("start")
+        if st.button("Lernkarten", key="hotspot_menu_cards"):
+            go_to("cards")
+        if st.button("Übungstest", key="hotspot_menu_practice"):
+            go_to("practice")
+        if st.button("Prüfung", key="hotspot_menu_exam"):
+            go_to("exam")
+        if st.button("Simulation", key="hotspot_menu_simulation"):
+            go_to("simulation")
+        if st.button("Fehlertraining", key="hotspot_menu_errors"):
+            go_to("errors")
+        if st.button("Lernstand", key="hotspot_menu_progress"):
+            go_to("progress")
 
-        if 0.007 <= x <= 0.105:
-            if 0.158 <= y <= 0.219: go_to("start")
-            elif 0.220 <= y <= 0.277: go_to("cards")
-            elif 0.280 <= y <= 0.337: go_to("practice")
-            elif 0.340 <= y <= 0.397: go_to("exam")
-            elif 0.400 <= y <= 0.457: go_to("simulation")
-            elif 0.460 <= y <= 0.517: go_to("errors")
-            elif 0.520 <= y <= 0.577: go_to("progress")
-        elif 0.454 <= y <= 0.709:
-            if 0.129 <= x <= 0.259: go_to("cards")
-            elif 0.265 <= x <= 0.395: go_to("practice")
-            elif 0.401 <= x <= 0.531: go_to("exam")
-            elif 0.537 <= x <= 0.667: go_to("simulation")
-            elif 0.673 <= x <= 0.803: go_to("errors")
-            elif 0.809 <= x <= 0.939: go_to("progress")
+        # Six large dashboard card hotspots
+        if st.button("Lernkarten öffnen", key="hotspot_card_cards"):
+            go_to("cards")
+        if st.button("Übungstest öffnen", key="hotspot_card_practice"):
+            go_to("practice")
+        if st.button("Prüfung öffnen", key="hotspot_card_exam"):
+            go_to("exam")
+        if st.button("Simulation öffnen", key="hotspot_card_simulation"):
+            go_to("simulation")
+        if st.button("Fehlertraining öffnen", key="hotspot_card_errors"):
+            go_to("errors")
+        if st.button("Lernstand öffnen", key="hotspot_card_progress"):
+            go_to("progress")
 
     user_email = getattr(current_user(), "email", None)
     c1, c2 = st.columns([5, 1])
