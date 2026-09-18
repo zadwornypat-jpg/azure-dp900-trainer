@@ -1,0 +1,1442 @@
+[
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Art von Daten hat normalerweise ein festes Schema mit Zeilen und Spalten?",
+        "options": [
+            "Strukturierte Daten",
+            "Unstrukturierte Daten",
+            "Binärdaten",
+            "Streamingdaten"
+        ],
+        "correct": "Strukturierte Daten",
+        "explanation": "Strukturierte Daten folgen einem definierten Schema, zum Beispiel Tabellen mit Spalten und Datentypen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welches Beispiel ist typischerweise halbstrukturiert?",
+        "options": [
+            "JSON-Dokument",
+            "JPEG-Foto",
+            "MP4-Video",
+            "Gedruckter Brief"
+        ],
+        "correct": "JSON-Dokument",
+        "explanation": "JSON enthält erkennbare Schlüssel und Werte, benötigt aber kein starres relationales Tabellenschema."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welches Beispiel ist typischerweise unstrukturiert?",
+        "options": [
+            "Videoaufnahme",
+            "SQL-Tabelle",
+            "CSV mit festen Spalten",
+            "Tabelle mit Primärschlüssel"
+        ],
+        "correct": "Videoaufnahme",
+        "explanation": "Videos besitzen normalerweise kein tabellarisches Schema und zählen zu unstrukturierten Daten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welches Dateiformat verwendet typischerweise durch Kommas getrennte Werte?",
+        "options": [
+            "CSV",
+            "JSON",
+            "XML",
+            "Parquet"
+        ],
+        "correct": "CSV",
+        "explanation": "CSV steht für Comma-Separated Values und speichert tabellarische Daten als Text."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welches Format eignet sich besonders für spaltenorientierte analytische Speicherung?",
+        "options": [
+            "Parquet",
+            "TXT",
+            "BMP",
+            "WAV"
+        ],
+        "correct": "Parquet",
+        "explanation": "Parquet ist ein spaltenorientiertes Dateiformat und wird häufig für analytische Datenverarbeitung eingesetzt."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welches Format verwendet Tags zur Strukturierung von Daten?",
+        "options": [
+            "XML",
+            "CSV",
+            "JPEG",
+            "MP3"
+        ],
+        "correct": "XML",
+        "explanation": "XML strukturiert Daten mithilfe von Elementen und Tags."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Aussage beschreibt eine Datenbank am besten?",
+        "options": [
+            "Ein organisierter Datenspeicher, der Abfragen und Verwaltung unterstützt",
+            "Nur ein Ordner für Bilder",
+            "Ein Dienst ausschließlich für Backups",
+            "Ein Visualisierungstool"
+        ],
+        "correct": "Ein organisierter Datenspeicher, der Abfragen und Verwaltung unterstützt",
+        "explanation": "Datenbanken speichern und organisieren Daten und stellen Mechanismen zum Lesen und Verwalten bereit."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welcher Workload verarbeitet typischerweise viele kurze Einfüge-, Änderungs- und Löschvorgänge?",
+        "options": [
+            "Transaktionaler Workload",
+            "Analytischer Workload",
+            "Archivierungsworkload",
+            "Visualisierungsworkload"
+        ],
+        "correct": "Transaktionaler Workload",
+        "explanation": "OLTP-Systeme sind für viele kleine, schnelle Transaktionen optimiert."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welcher Workload analysiert häufig große Datenmengen über längere Zeiträume?",
+        "options": [
+            "Analytischer Workload",
+            "Transaktionaler Workload",
+            "Dateifreigabe",
+            "DNS-Workload"
+        ],
+        "correct": "Analytischer Workload",
+        "explanation": "Analytische Systeme führen häufig Aggregationen und komplexe Abfragen über große Datenmengen aus."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Ein Onlineshop speichert jede Bestellung sofort. Welcher Workload ist das hauptsächlich?",
+        "options": [
+            "Transaktional",
+            "Analytisch",
+            "Batch-Archivierung",
+            "Data Visualization"
+        ],
+        "correct": "Transaktional",
+        "explanation": "Das Erfassen einzelner Bestellungen ist ein typischer OLTP-Anwendungsfall."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Ein Unternehmen berechnet monatliche Umsatztrends aus Millionen Bestellungen. Welcher Workload passt?",
+        "options": [
+            "Analytisch",
+            "Transaktional",
+            "Dateifreigabe",
+            "Caching"
+        ],
+        "correct": "Analytisch",
+        "explanation": "Trendanalysen über große historische Datenmengen sind analytische Workloads."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Rolle ist typischerweise für Betrieb, Sicherheit und Verfügbarkeit von Datenbanken verantwortlich?",
+        "options": [
+            "Database Administrator",
+            "Data Analyst",
+            "Grafikdesigner",
+            "Frontend Developer"
+        ],
+        "correct": "Database Administrator",
+        "explanation": "DBAs verwalten Datenbanken, einschließlich Betrieb, Sicherheit, Sicherung und Leistung."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Rolle baut typischerweise Datenpipelines und integriert Daten aus mehreren Quellen?",
+        "options": [
+            "Data Engineer",
+            "Database Administrator",
+            "Data Analyst",
+            "UX Designer"
+        ],
+        "correct": "Data Engineer",
+        "explanation": "Data Engineers entwickeln und betreiben Datenintegrations- und Verarbeitungslösungen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Rolle erstellt typischerweise Berichte und Visualisierungen für Geschäftsentscheidungen?",
+        "options": [
+            "Data Analyst",
+            "Database Administrator",
+            "Network Engineer",
+            "System Administrator"
+        ],
+        "correct": "Data Analyst",
+        "explanation": "Data Analysts untersuchen Daten und kommunizieren Erkenntnisse häufig über Berichte und Visualisierungen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was bedeutet Schema bei strukturierten Daten?",
+        "options": [
+            "Die definierte Struktur der Daten, etwa Spalten und Datentypen",
+            "Die Verschlüsselung des Netzwerks",
+            "Die Farbe eines Dashboards",
+            "Die Anzahl der Benutzer"
+        ],
+        "correct": "Die definierte Struktur der Daten, etwa Spalten und Datentypen",
+        "explanation": "Ein Schema beschreibt Aufbau und Regeln der gespeicherten Daten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Datenart passt am besten zu einem Produktkatalog, dessen Produkte unterschiedliche optionale Eigenschaften besitzen?",
+        "options": [
+            "Halbstrukturierte Daten",
+            "Nur streng relationale Daten",
+            "Nur Audiodaten",
+            "Maschinencode"
+        ],
+        "correct": "Halbstrukturierte Daten",
+        "explanation": "Flexible Dokumentstrukturen wie JSON eignen sich gut, wenn Datensätze unterschiedliche Felder besitzen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Warum wird ein Data Store ausgewählt?",
+        "options": [
+            "Damit Speicher- und Zugriffsmuster zum Anwendungsfall passen",
+            "Damit jede Anwendung SQL verwenden muss",
+            "Damit Daten immer lokal bleiben",
+            "Damit keine Sicherungen nötig sind"
+        ],
+        "correct": "Damit Speicher- und Zugriffsmuster zum Anwendungsfall passen",
+        "explanation": "Unterschiedliche Datenspeicher sind für unterschiedliche Strukturen, Skalierung und Zugriffsmuster optimiert."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Eigenschaft ist für transaktionale Systeme besonders wichtig?",
+        "options": [
+            "Konsistente Verarbeitung einzelner Geschäftsvorgänge",
+            "Nur langfristige Aggregation",
+            "Ausschließlich Diagramme",
+            "Nur unstrukturierte Dateien"
+        ],
+        "correct": "Konsistente Verarbeitung einzelner Geschäftsvorgänge",
+        "explanation": "Transaktionale Systeme müssen Geschäftsvorgänge zuverlässig und konsistent verarbeiten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist eine Transaktion?",
+        "options": [
+            "Eine logische Arbeitseinheit aus einem oder mehreren Datenvorgängen",
+            "Ein Diagrammtyp",
+            "Ein Dateiformat",
+            "Eine Azure-Region"
+        ],
+        "correct": "Eine logische Arbeitseinheit aus einem oder mehreren Datenvorgängen",
+        "explanation": "Eine Transaktion fasst zusammengehörige Datenoperationen als logische Einheit zusammen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Operation gehört zu CRUD?",
+        "options": [
+            "Create",
+            "Compile",
+            "Route",
+            "Deploy"
+        ],
+        "correct": "Create",
+        "explanation": "CRUD steht für Create, Read, Update und Delete."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Wofür steht das R in CRUD?",
+        "options": [
+            "Read",
+            "Relate",
+            "Render",
+            "Recover"
+        ],
+        "correct": "Read",
+        "explanation": "CRUD bezeichnet Create, Read, Update und Delete."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Aussage zu analytischen Daten ist typisch?",
+        "options": [
+            "Sie werden häufig aggregiert, um Trends und Muster zu erkennen",
+            "Sie dürfen nie historische Daten enthalten",
+            "Sie bestehen ausschließlich aus Bildern",
+            "Sie ersetzen alle Transaktionssysteme"
+        ],
+        "correct": "Sie werden häufig aggregiert, um Trends und Muster zu erkennen",
+        "explanation": "Analytische Verarbeitung verdichtet und untersucht Daten, um Erkenntnisse zu gewinnen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist ein Beispiel für strukturierte Daten?",
+        "options": [
+            "Kundentabelle mit CustomerID, Name und E-Mail",
+            "Freitext-Podcast",
+            "Urlaubsfoto",
+            "Videoaufzeichnung"
+        ],
+        "correct": "Kundentabelle mit CustomerID, Name und E-Mail",
+        "explanation": "Eine Tabelle mit definierten Spalten ist strukturiert."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist ein Beispiel für halbstrukturierte Daten?",
+        "options": [
+            "Ein JSON-Ereignis mit Zeitstempel und Eigenschaften",
+            "Ein analoges Foto",
+            "Eine relationale Tabelle mit festen Datentypen",
+            "Eine Audiodatei"
+        ],
+        "correct": "Ein JSON-Ereignis mit Zeitstempel und Eigenschaften",
+        "explanation": "JSON hat eine erkennbare Struktur, aber kein zwingend starres Tabellenschema."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist ein Beispiel für unstrukturierte Daten?",
+        "options": [
+            "Freitext in einem Dokument",
+            "SQL-Tabelle mit Schema",
+            "CSV mit festen Spalten",
+            "Relation mit Primärschlüssel"
+        ],
+        "correct": "Freitext in einem Dokument",
+        "explanation": "Freitext besitzt typischerweise kein festes tabellarisches Schema."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Aufgabe gehört eher zu einem Data Engineer als zu einem Data Analyst?",
+        "options": [
+            "Aufbau einer Pipeline zur Datenaufnahme",
+            "Erstellung eines Management-Dashboards",
+            "Interpretation einer Umsatzvisualisierung",
+            "Präsentation von KPIs"
+        ],
+        "correct": "Aufbau einer Pipeline zur Datenaufnahme",
+        "explanation": "Datenpipelines und technische Datenintegration sind typische Data-Engineering-Aufgaben."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Aufgabe gehört eher zu einem Data Analyst?",
+        "options": [
+            "Erstellen eines Power-BI-Berichts",
+            "Konfigurieren von Datenbank-Backups",
+            "Patchen eines Datenbankservers",
+            "Entwerfen einer Netzwerk-Firewall"
+        ],
+        "correct": "Erstellen eines Power-BI-Berichts",
+        "explanation": "Analysten bereiten Daten auf und erstellen Berichte und Visualisierungen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Aufgabe gehört eher zu einem DBA?",
+        "options": [
+            "Verwalten von Datenbankberechtigungen",
+            "Erstellen einer Marketinggrafik",
+            "Trainieren eines Sprachmodells",
+            "Schneiden eines Videos"
+        ],
+        "correct": "Verwalten von Datenbankberechtigungen",
+        "explanation": "Zugriffssteuerung und Datenbankbetrieb gehören typischerweise zur DBA-Rolle."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Warum kann Parquet für Analytics effizient sein?",
+        "options": [
+            "Es speichert Daten spaltenorientiert",
+            "Es ist ausschließlich ein Bildformat",
+            "Es enthält keine Datentypen",
+            "Es kann nur eine Zeile speichern"
+        ],
+        "correct": "Es speichert Daten spaltenorientiert",
+        "explanation": "Spaltenorientierte Speicherung kann analytische Abfragen effizienter machen, wenn nur bestimmte Spalten benötigt werden."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Beschreibung passt zu CSV?",
+        "options": [
+            "Textbasiertes Format für tabellarische Daten",
+            "Binäres Videoformat",
+            "Relationale Datenbank-Engine",
+            "Azure-Visualisierung"
+        ],
+        "correct": "Textbasiertes Format für tabellarische Daten",
+        "explanation": "CSV ist ein einfaches textbasiertes Format für Zeilen und Spalten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Warum können JSON-Daten als halbstrukturiert gelten?",
+        "options": [
+            "Dokumente können Schlüssel und Hierarchien besitzen, ohne ein starres Tabellenschema zu benötigen",
+            "JSON enthält grundsätzlich keine Struktur",
+            "JSON kann nur Zahlen speichern",
+            "JSON ist immer eine SQL-Datenbank"
+        ],
+        "correct": "Dokumente können Schlüssel und Hierarchien besitzen, ohne ein starres Tabellenschema zu benötigen",
+        "explanation": "JSON besitzt Struktur durch Schlüssel, Werte und Verschachtelung, bleibt aber flexibler als ein starres relationales Schema."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Ein Sensor sendet fortlaufend Messwerte. Wie nennt man die fortlaufende Datenzufuhr?",
+        "options": [
+            "Datenstream",
+            "Normalisierung",
+            "Primärschlüssel",
+            "Dimension"
+        ],
+        "correct": "Datenstream",
+        "explanation": "Kontinuierlich eintreffende Ereignisse oder Messwerte werden als Datenstream verarbeitet."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Welche Frage ist bei der Wahl eines Datenspeichers besonders relevant?",
+        "options": [
+            "Wie sind die Daten strukturiert und wie werden sie gelesen oder geschrieben?",
+            "Welche Schriftart nutzt das Dashboard?",
+            "Welche Farbe hat das Firmenlogo?",
+            "Wie viele Folien hat die Präsentation?"
+        ],
+        "correct": "Wie sind die Daten strukturiert und wie werden sie gelesen oder geschrieben?",
+        "explanation": "Datenstruktur und Zugriffsmuster sind zentrale Kriterien bei der Auswahl eines geeigneten Datenspeichers."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was kennzeichnet relationale Daten?",
+        "options": [
+            "Daten werden typischerweise in Tabellen mit Beziehungen organisiert",
+            "Daten können niemals ein Schema haben",
+            "Es werden ausschließlich Videos gespeichert",
+            "Abfragen sind nicht möglich"
+        ],
+        "correct": "Daten werden typischerweise in Tabellen mit Beziehungen organisiert",
+        "explanation": "Relationale Datenbanken organisieren Daten in Tabellen und modellieren Beziehungen zwischen ihnen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist ein Primärschlüssel?",
+        "options": [
+            "Ein Feld oder eine Feldkombination, die eine Zeile eindeutig identifiziert",
+            "Ein Passwort für Azure",
+            "Eine Kopie einer Tabelle",
+            "Ein Diagrammtyp"
+        ],
+        "correct": "Ein Feld oder eine Feldkombination, die eine Zeile eindeutig identifiziert",
+        "explanation": "Primärschlüssel sorgen für eine eindeutige Identifikation von Datensätzen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist ein Fremdschlüssel?",
+        "options": [
+            "Ein Feld, das auf einen Schlüssel einer anderen oder derselben Tabelle verweist",
+            "Ein verschlüsseltes Kennwort",
+            "Ein Dateiformat",
+            "Ein Backup"
+        ],
+        "correct": "Ein Feld, das auf einen Schlüssel einer anderen oder derselben Tabelle verweist",
+        "explanation": "Fremdschlüssel werden verwendet, um Beziehungen zwischen Tabellen abzubilden."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Warum wird Normalisierung verwendet?",
+        "options": [
+            "Um Redundanz zu reduzieren und Datenkonsistenz zu verbessern",
+            "Um jede Tabelle zu duplizieren",
+            "Um Bilder zu komprimieren",
+            "Um SQL abzuschaffen"
+        ],
+        "correct": "Um Redundanz zu reduzieren und Datenkonsistenz zu verbessern",
+        "explanation": "Normalisierung verteilt Daten sinnvoll auf Tabellen und reduziert unnötige Wiederholungen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher SQL-Befehl liest Daten?",
+        "options": [
+            "SELECT",
+            "INSERT",
+            "UPDATE",
+            "DELETE"
+        ],
+        "correct": "SELECT",
+        "explanation": "SELECT wird verwendet, um Daten abzufragen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher SQL-Befehl fügt neue Zeilen ein?",
+        "options": [
+            "INSERT",
+            "SELECT",
+            "DROP",
+            "GRANT"
+        ],
+        "correct": "INSERT",
+        "explanation": "INSERT fügt Datensätze in eine Tabelle ein."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher SQL-Befehl ändert vorhandene Daten?",
+        "options": [
+            "UPDATE",
+            "SELECT",
+            "CREATE",
+            "JOIN"
+        ],
+        "correct": "UPDATE",
+        "explanation": "UPDATE verändert Werte in bestehenden Datensätzen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher SQL-Befehl löscht Datensätze?",
+        "options": [
+            "DELETE",
+            "SELECT",
+            "ALTER",
+            "GROUP"
+        ],
+        "correct": "DELETE",
+        "explanation": "DELETE entfernt ausgewählte Zeilen aus einer Tabelle."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welches Datenbankobjekt speichert relationale Datensätze in Zeilen und Spalten?",
+        "options": [
+            "Tabelle",
+            "View",
+            "Index",
+            "Stored Procedure"
+        ],
+        "correct": "Tabelle",
+        "explanation": "Tabellen sind das zentrale Speicherobjekt relationaler Datenbanken."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist eine View?",
+        "options": [
+            "Eine gespeicherte Abfragedefinition, die Daten wie eine virtuelle Tabelle darstellen kann",
+            "Eine physische Kopie jeder Datenbank",
+            "Ein Azure-Abonnement",
+            "Ein Bildformat"
+        ],
+        "correct": "Eine gespeicherte Abfragedefinition, die Daten wie eine virtuelle Tabelle darstellen kann",
+        "explanation": "Views stellen Ergebnisse einer Abfrage bereit, ohne zwingend eine eigene Kopie der zugrunde liegenden Daten zu speichern."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Wozu dient ein Index in einer relationalen Datenbank?",
+        "options": [
+            "Er kann das Auffinden von Daten beschleunigen",
+            "Er ersetzt alle Tabellen",
+            "Er wandelt SQL in JSON um",
+            "Er ist nur für Backups da"
+        ],
+        "correct": "Er kann das Auffinden von Daten beschleunigen",
+        "explanation": "Indizes unterstützen effiziente Such- und Sortierzugriffe, benötigen aber zusätzlichen Speicher und Pflege."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist eine Stored Procedure?",
+        "options": [
+            "Gespeicherter ausführbarer SQL-Code in der Datenbank",
+            "Eine Bilddatei",
+            "Ein Netzwerkprotokoll",
+            "Ein Azure-Speicherkonto"
+        ],
+        "correct": "Gespeicherter ausführbarer SQL-Code in der Datenbank",
+        "explanation": "Stored Procedures kapseln Datenbanklogik, die auf dem Datenbankserver ausgeführt werden kann."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche SQL-Klausel filtert Zeilen?",
+        "options": [
+            "WHERE",
+            "ORDER BY",
+            "SELECT",
+            "CREATE"
+        ],
+        "correct": "WHERE",
+        "explanation": "WHERE legt Bedingungen fest, die Datensätze erfüllen müssen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche SQL-Klausel sortiert ein Abfrageergebnis?",
+        "options": [
+            "ORDER BY",
+            "WHERE",
+            "INSERT",
+            "DROP"
+        ],
+        "correct": "ORDER BY",
+        "explanation": "ORDER BY sortiert das Ergebnis nach einer oder mehreren Spalten."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche SQL-Klausel gruppiert Zeilen für Aggregationen?",
+        "options": [
+            "GROUP BY",
+            "DELETE",
+            "VALUES",
+            "ALTER"
+        ],
+        "correct": "GROUP BY",
+        "explanation": "GROUP BY bildet Gruppen, auf die Aggregatfunktionen angewendet werden können."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Funktion zählt Zeilen oder Werte?",
+        "options": [
+            "COUNT",
+            "AVG",
+            "MAX",
+            "SUM"
+        ],
+        "correct": "COUNT",
+        "explanation": "COUNT liefert eine Anzahl."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was bewirkt ein JOIN?",
+        "options": [
+            "Er kombiniert zusammengehörige Daten aus mehreren Tabellen",
+            "Er löscht automatisch Duplikate aus jeder Datenbank",
+            "Er erstellt ein Backup",
+            "Er verschlüsselt eine Tabelle"
+        ],
+        "correct": "Er kombiniert zusammengehörige Daten aus mehreren Tabellen",
+        "explanation": "JOINs verbinden Zeilen aus Tabellen anhand einer Beziehung oder Bedingung."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Azure-SQL-Option ist ein vollständig verwalteter Datenbankdienst für einzelne Datenbanken?",
+        "options": [
+            "Azure SQL Database",
+            "SQL Server on Azure Virtual Machines",
+            "Azure Blob Storage",
+            "Azure Files"
+        ],
+        "correct": "Azure SQL Database",
+        "explanation": "Azure SQL Database ist ein vollständig verwalteter PaaS-Datenbankdienst."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Azure-SQL-Option bietet hohe SQL-Server-Kompatibilität als verwaltete Instanz?",
+        "options": [
+            "Azure SQL Managed Instance",
+            "Azure Table Storage",
+            "Azure Files",
+            "Power BI"
+        ],
+        "correct": "Azure SQL Managed Instance",
+        "explanation": "Managed Instance bietet eine verwaltete SQL-Server-Instanz mit hoher Kompatibilität zu SQL Server."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Option bietet die größte Kontrolle über Betriebssystem und SQL-Server-Installation?",
+        "options": [
+            "SQL Server on Azure Virtual Machines",
+            "Azure SQL Database",
+            "Azure SQL Managed Instance",
+            "Azure Cosmos DB"
+        ],
+        "correct": "SQL Server on Azure Virtual Machines",
+        "explanation": "Bei SQL Server auf Azure VMs verwaltet der Kunde mehr Teile des Betriebssystems und der SQL-Server-Umgebung."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Ein Unternehmen möchte eine bestehende SQL-Server-Anwendung mit möglichst hoher Instanzkompatibilität zu PaaS migrieren. Welche Option passt?",
+        "options": [
+            "Azure SQL Managed Instance",
+            "Azure Blob Storage",
+            "Azure Table Storage",
+            "Power BI"
+        ],
+        "correct": "Azure SQL Managed Instance",
+        "explanation": "Managed Instance ist für Szenarien geeignet, die SQL-Server-Instanzfunktionen bei PaaS-Verwaltung benötigen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Ein Unternehmen benötigt vollständigen Zugriff auf das Betriebssystem des Datenbankservers. Welche Option passt?",
+        "options": [
+            "SQL Server on Azure Virtual Machines",
+            "Azure SQL Database",
+            "Azure SQL Managed Instance",
+            "Azure Cosmos DB"
+        ],
+        "correct": "SQL Server on Azure Virtual Machines",
+        "explanation": "Eine VM bietet Kontrolle über Betriebssystem und SQL-Server-Konfiguration."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher Azure-Dienst ist für verwaltetes PostgreSQL gedacht?",
+        "options": [
+            "Azure Database for PostgreSQL",
+            "Azure SQL Database",
+            "Azure Cosmos DB",
+            "Azure Files"
+        ],
+        "correct": "Azure Database for PostgreSQL",
+        "explanation": "Azure Database for PostgreSQL stellt PostgreSQL als verwalteten Azure-Dienst bereit."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welcher Azure-Dienst ist für verwaltetes MySQL gedacht?",
+        "options": [
+            "Azure Database for MySQL",
+            "Azure SQL Managed Instance",
+            "Azure Blob Storage",
+            "Azure Data Factory"
+        ],
+        "correct": "Azure Database for MySQL",
+        "explanation": "Azure Database for MySQL stellt MySQL als verwalteten Azure-Dienst bereit."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Beziehung beschreibt: Ein Kunde kann viele Bestellungen haben?",
+        "options": [
+            "One-to-many",
+            "One-to-one",
+            "Many-to-zero",
+            "Keine Beziehung"
+        ],
+        "correct": "One-to-many",
+        "explanation": "Ein Kundendatensatz kann mit mehreren Bestellungen verbunden sein."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche Eigenschaft sollte ein Primärschlüssel besitzen?",
+        "options": [
+            "Eindeutigkeit",
+            "Jeder Wert muss doppelt vorkommen",
+            "Er muss immer Freitext sein",
+            "Er darf nur Bilder enthalten"
+        ],
+        "correct": "Eindeutigkeit",
+        "explanation": "Ein Primärschlüssel muss jeden Datensatz eindeutig identifizieren."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Warum sind Beziehungen in relationalen Datenbanken nützlich?",
+        "options": [
+            "Sie verbinden logisch zusammengehörige Daten, ohne alles in einer Tabelle zu duplizieren",
+            "Sie verhindern jede Abfrage",
+            "Sie ersetzen Datentypen",
+            "Sie dienen nur zur Visualisierung"
+        ],
+        "correct": "Sie verbinden logisch zusammengehörige Daten, ohne alles in einer Tabelle zu duplizieren",
+        "explanation": "Beziehungen ermöglichen normalisierte Datenmodelle mit Verknüpfungen zwischen Entitäten."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Aussage beschreibt nicht relationale Daten am besten?",
+        "options": [
+            "Sie müssen nicht zwingend einem relationalen Tabellenschema folgen",
+            "Sie können niemals strukturiert sein",
+            "Sie können nicht abgefragt werden",
+            "Sie existieren nur lokal"
+        ],
+        "correct": "Sie müssen nicht zwingend einem relationalen Tabellenschema folgen",
+        "explanation": "NoSQL-Modelle bieten flexible Datenmodelle außerhalb klassischer relationaler Tabellen."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Wofür eignet sich Azure Blob Storage besonders?",
+        "options": [
+            "Große Mengen unstrukturierter Objektdaten",
+            "Relationale JOINs",
+            "Ausführung von Stored Procedures",
+            "Power-BI-Dashboards"
+        ],
+        "correct": "Große Mengen unstrukturierter Objektdaten",
+        "explanation": "Blob Storage ist Azure-Objektspeicher für beispielsweise Bilder, Videos, Backups und Dokumente."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Wofür wird Azure Files verwendet?",
+        "options": [
+            "Verwaltete Dateifreigaben in der Cloud",
+            "Globale NoSQL-Dokumentdatenbank",
+            "SQL Data Warehouse",
+            "Dashboard-Erstellung"
+        ],
+        "correct": "Verwaltete Dateifreigaben in der Cloud",
+        "explanation": "Azure Files stellt Cloud-Dateifreigaben bereit, die über gängige Dateifreigabeprotokolle erreichbar sind."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Table Storage?",
+        "options": [
+            "Ein NoSQL-Schlüssel-Attribut-Speicher",
+            "Eine relationale SQL-Engine",
+            "Ein Visualisierungstool",
+            "Ein ETL-Designer"
+        ],
+        "correct": "Ein NoSQL-Schlüssel-Attribut-Speicher",
+        "explanation": "Table Storage speichert große Mengen strukturierter nicht relationaler Schlüssel-Attribut-Daten."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Cosmos DB?",
+        "options": [
+            "Ein vollständig verwalteter verteilter NoSQL-Datenbankdienst",
+            "Nur ein lokaler SQL Server",
+            "Ein Dateisystem",
+            "Ein BI-Bericht"
+        ],
+        "correct": "Ein vollständig verwalteter verteilter NoSQL-Datenbankdienst",
+        "explanation": "Cosmos DB ist für skalierbare, verteilte NoSQL-Anwendungen konzipiert."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Ein Unternehmen speichert Millionen Produktbilder. Welcher Dienst passt am besten?",
+        "options": [
+            "Azure Blob Storage",
+            "Azure SQL Managed Instance",
+            "Power BI",
+            "Azure Database for PostgreSQL"
+        ],
+        "correct": "Azure Blob Storage",
+        "explanation": "Bilder sind unstrukturierte Objekte und passen gut zu Blob Storage."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Eine Anwendung benötigt einen gemeinsamen Cloud-Dateiserver. Welcher Dienst passt?",
+        "options": [
+            "Azure Files",
+            "Azure Cosmos DB",
+            "Azure Table Storage",
+            "Power BI"
+        ],
+        "correct": "Azure Files",
+        "explanation": "Azure Files stellt verwaltete Dateifreigaben bereit."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Eine weltweit genutzte App benötigt eine skalierbare NoSQL-Datenbank mit geringer Latenz. Welcher Dienst passt?",
+        "options": [
+            "Azure Cosmos DB",
+            "Azure Files",
+            "Azure SQL VM",
+            "Power BI"
+        ],
+        "correct": "Azure Cosmos DB",
+        "explanation": "Cosmos DB wurde für global verteilte, skalierbare NoSQL-Anwendungen entwickelt."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Blob-Zugriffsebene ist für häufig verwendete Daten gedacht?",
+        "options": [
+            "Hot",
+            "Archive",
+            "Offline",
+            "Frozen"
+        ],
+        "correct": "Hot",
+        "explanation": "Die Hot-Tier ist für Daten mit häufigem Zugriff ausgelegt."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Blob-Zugriffsebene ist für selten verwendete Daten mit langfristiger Aufbewahrung und höheren Abrufzeiten gedacht?",
+        "options": [
+            "Archive",
+            "Hot",
+            "Memory",
+            "Premium SQL"
+        ],
+        "correct": "Archive",
+        "explanation": "Archive ist für selten benötigte Daten mit niedrigen Speicherkosten und höherer Abruflatenz gedacht."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist ein Container in Azure Blob Storage?",
+        "options": [
+            "Eine logische Gruppierung von Blobs",
+            "Eine relationale Tabelle",
+            "Eine Power-BI-Seite",
+            "Ein SQL-Index"
+        ],
+        "correct": "Eine logische Gruppierung von Blobs",
+        "explanation": "Blobs werden innerhalb von Containern eines Storage Accounts organisiert."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist ein Storage Account in Azure?",
+        "options": [
+            "Eine Azure-Ressource, die Zugriff auf Azure-Storage-Dienste bereitstellt",
+            "Ein Benutzerkonto für Power BI",
+            "Eine einzelne SQL-Zeile",
+            "Ein Diagrammtyp"
+        ],
+        "correct": "Eine Azure-Ressource, die Zugriff auf Azure-Storage-Dienste bereitstellt",
+        "explanation": "Storage Accounts bilden den Namens- und Verwaltungsrahmen für Azure Storage."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welcher Datentyp passt gut zu einer Dokumentdatenbank?",
+        "options": [
+            "JSON-ähnliche Dokumente mit flexiblen Eigenschaften",
+            "Nur starre Tabellen mit JOIN-Zwang",
+            "Nur Videostreams ohne Metadaten",
+            "Nur Excel-Diagramme"
+        ],
+        "correct": "JSON-ähnliche Dokumente mit flexiblen Eigenschaften",
+        "explanation": "Dokumentdatenbanken eignen sich für flexible, hierarchische Datensätze."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist ein Key-Value-Datenmodell?",
+        "options": [
+            "Ein Wert wird über einen eindeutigen Schlüssel adressiert",
+            "Jeder Datensatz braucht mehrere JOINs",
+            "Daten werden nur als Video gespeichert",
+            "Es ist ein Diagrammtyp"
+        ],
+        "correct": "Ein Wert wird über einen eindeutigen Schlüssel adressiert",
+        "explanation": "Key-Value Stores ordnen Schlüsseln zugehörige Werte zu."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Warum kann NoSQL für flexible Anwendungen attraktiv sein?",
+        "options": [
+            "Das Datenmodell kann flexibler als ein starres relationales Schema sein",
+            "NoSQL benötigt immer mehr Tabellen",
+            "NoSQL kann keine Daten speichern",
+            "NoSQL funktioniert nur offline"
+        ],
+        "correct": "Das Datenmodell kann flexibler als ein starres relationales Schema sein",
+        "explanation": "Viele NoSQL-Systeme erlauben flexible oder schemavariable Datenmodelle."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Azure-Storage-Lösung ist für Objekte wie PDF-Dateien und Videos geeignet?",
+        "options": [
+            "Blob Storage",
+            "Table Storage",
+            "Azure SQL Database",
+            "Power BI"
+        ],
+        "correct": "Blob Storage",
+        "explanation": "Blob Storage speichert unstrukturierte Objekte."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Azure-Storage-Lösung ähnelt am ehesten einem klassischen Netzlaufwerk?",
+        "options": [
+            "Azure Files",
+            "Blob Archive",
+            "Cosmos DB",
+            "Azure SQL Database"
+        ],
+        "correct": "Azure Files",
+        "explanation": "Azure Files stellt Dateifreigaben bereit, die wie gemeinsame Dateisysteme genutzt werden können."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Aussage zu Azure Cosmos DB ist richtig?",
+        "options": [
+            "Es unterstützt NoSQL-Datenmodelle und horizontale Skalierung",
+            "Es ist ausschließlich ein Dateifreigabedienst",
+            "Es kann nur auf einer einzelnen lokalen VM laufen",
+            "Es ist ausschließlich ein Visualisierungstool"
+        ],
+        "correct": "Es unterstützt NoSQL-Datenmodelle und horizontale Skalierung",
+        "explanation": "Cosmos DB ist ein verteilter NoSQL-Dienst mit Skalierungsfunktionen."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welche Daten passen gut zu Table Storage?",
+        "options": [
+            "Große Mengen einfacher Entitäten mit Schlüssel-Attribut-Struktur",
+            "Komplexe relationale JOIN-Modelle als Hauptanforderung",
+            "Videobearbeitung",
+            "PowerPoint-Folien"
+        ],
+        "correct": "Große Mengen einfacher Entitäten mit Schlüssel-Attribut-Struktur",
+        "explanation": "Table Storage eignet sich für einfache strukturierte NoSQL-Entitäten."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Warum kann Replikation bei Cloud-Speicher wichtig sein?",
+        "options": [
+            "Sie kann Haltbarkeit und Verfügbarkeit von Daten erhöhen",
+            "Sie entfernt automatisch alle Daten",
+            "Sie ersetzt jede Zugriffskontrolle",
+            "Sie erzeugt SQL-JOINs"
+        ],
+        "correct": "Sie kann Haltbarkeit und Verfügbarkeit von Daten erhöhen",
+        "explanation": "Mehrere Kopien können vor bestimmten Hardware- oder Standortausfällen schützen."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Welcher Dienst gehört NICHT primär zur nicht relationalen Azure-Datenspeicherung?",
+        "options": [
+            "Azure SQL Database",
+            "Azure Cosmos DB",
+            "Azure Blob Storage",
+            "Azure Table Storage"
+        ],
+        "correct": "Azure SQL Database",
+        "explanation": "Azure SQL Database ist ein relationaler Datenbankdienst."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Data Warehouse?",
+        "options": [
+            "Ein für analytische Abfragen optimierter Datenspeicher",
+            "Ein Netzlaufwerk für Bilder",
+            "Eine einzelne OLTP-Transaktion",
+            "Ein Passwortspeicher"
+        ],
+        "correct": "Ein für analytische Abfragen optimierter Datenspeicher",
+        "explanation": "Data Warehouses konsolidieren Daten für Analyse und Reporting."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Data Lake?",
+        "options": [
+            "Ein skalierbarer Speicher für große Mengen unterschiedlich strukturierter Rohdaten",
+            "Nur eine relationale Tabelle",
+            "Ein Dashboard",
+            "Ein DNS-Dienst"
+        ],
+        "correct": "Ein skalierbarer Speicher für große Mengen unterschiedlich strukturierter Rohdaten",
+        "explanation": "Data Lakes speichern große Datenmengen in verschiedenen Formaten, häufig in Roh- oder verarbeiteter Form."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was bedeutet ETL?",
+        "options": [
+            "Extract, Transform, Load",
+            "Execute, Transfer, Link",
+            "Export, Test, Log",
+            "Extract, Table, Loop"
+        ],
+        "correct": "Extract, Transform, Load",
+        "explanation": "Bei ETL werden Daten extrahiert, transformiert und anschließend in das Ziel geladen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was bedeutet ELT?",
+        "options": [
+            "Extract, Load, Transform",
+            "Execute, Link, Transfer",
+            "Export, Load, Table",
+            "Extract, Log, Test"
+        ],
+        "correct": "Extract, Load, Transform",
+        "explanation": "Bei ELT werden Daten zunächst geladen und anschließend im Zielsystem transformiert."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Batchverarbeitung?",
+        "options": [
+            "Verarbeitung gesammelter Daten in Gruppen",
+            "Verarbeitung jedes Ereignisses zwingend sofort",
+            "Nur manuelle Dateneingabe",
+            "Ein Visualisierungstyp"
+        ],
+        "correct": "Verarbeitung gesammelter Daten in Gruppen",
+        "explanation": "Batchverarbeitung verarbeitet Daten in zeitlich oder mengenmäßig gebündelten Einheiten."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Stream Processing?",
+        "options": [
+            "Fortlaufende Verarbeitung eintreffender Ereignisse",
+            "Nur monatliche Archivierung",
+            "Normalisierung relationaler Tabellen",
+            "Ein Dateiformat"
+        ],
+        "correct": "Fortlaufende Verarbeitung eintreffender Ereignisse",
+        "explanation": "Streaming verarbeitet Ereignisse während oder kurz nachdem sie eintreffen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welcher Anwendungsfall spricht für Echtzeitanalyse?",
+        "options": [
+            "Erkennen ungewöhnlicher Sensordaten unmittelbar nach ihrem Eintreffen",
+            "Monatlicher Jahresabschlussbericht",
+            "Langzeitarchiv ohne Abfragen",
+            "Manuelles Sortieren einer CSV"
+        ],
+        "correct": "Erkennen ungewöhnlicher Sensordaten unmittelbar nach ihrem Eintreffen",
+        "explanation": "Wenn geringe Latenz entscheidend ist, eignet sich Echtzeitverarbeitung."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wofür wird Azure Data Factory hauptsächlich eingesetzt?",
+        "options": [
+            "Orchestrierung und Integration von Datenpipelines",
+            "Erstellen von PowerPoint-Folien",
+            "Bereitstellen von Dateifreigaben",
+            "Verwalten von DNS"
+        ],
+        "correct": "Orchestrierung und Integration von Datenpipelines",
+        "explanation": "Data Factory bewegt und orchestriert Daten zwischen Quellen und Zielen und koordiniert Verarbeitungsschritte."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist eine Pipeline in Azure Data Factory?",
+        "options": [
+            "Eine logische Gruppe von Aktivitäten für einen Datenworkflow",
+            "Eine SQL-Tabelle",
+            "Eine Blob-Zugriffsebene",
+            "Ein Power-BI-Diagramm"
+        ],
+        "correct": "Eine logische Gruppe von Aktivitäten für einen Datenworkflow",
+        "explanation": "Pipelines organisieren Aktivitäten zu einem Datenprozess."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wofür wird Azure Databricks verwendet?",
+        "options": [
+            "Apache-Spark-basierte Datenverarbeitung, Engineering und Analytics",
+            "Cloud-Dateifreigaben",
+            "Nur relationale Backups",
+            "DNS-Verwaltung"
+        ],
+        "correct": "Apache-Spark-basierte Datenverarbeitung, Engineering und Analytics",
+        "explanation": "Azure Databricks ist eine Spark-basierte Analyseplattform."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Technologie bildet eine Grundlage von Azure Databricks?",
+        "options": [
+            "Apache Spark",
+            "Microsoft Word",
+            "SMB",
+            "DNS"
+        ],
+        "correct": "Apache Spark",
+        "explanation": "Databricks basiert auf Apache Spark für verteilte Datenverarbeitung."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wofür eignet sich Azure Data Explorer besonders?",
+        "options": [
+            "Analyse großer Mengen an Telemetrie-, Log- und Zeitreihendaten",
+            "Verwalten klassischer Dateifreigaben",
+            "Erstellen relationaler Primärschlüssel",
+            "Speichern von PowerPoint-Folien"
+        ],
+        "correct": "Analyse großer Mengen an Telemetrie-, Log- und Zeitreihendaten",
+        "explanation": "Azure Data Explorer ist für schnelle Analyse großer Ereignis-, Log- und Telemetriedaten ausgelegt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Abfragesprache wird typischerweise mit Azure Data Explorer verbunden?",
+        "options": [
+            "Kusto Query Language (KQL)",
+            "HTML",
+            "CSS",
+            "VBA"
+        ],
+        "correct": "Kusto Query Language (KQL)",
+        "explanation": "Azure Data Explorer verwendet KQL für die Analyse seiner Daten."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Microsoft Fabric?",
+        "options": [
+            "Eine integrierte SaaS-Plattform für Daten- und Analyseworkloads",
+            "Nur ein lokaler SQL-Server",
+            "Ein Betriebssystem",
+            "Ein Dateiformat"
+        ],
+        "correct": "Eine integrierte SaaS-Plattform für Daten- und Analyseworkloads",
+        "explanation": "Fabric vereint verschiedene Daten- und Analytics-Funktionen in einer gemeinsamen Plattform."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist OneLake?",
+        "options": [
+            "Der organisationsweite logische Data Lake in Microsoft Fabric",
+            "Ein relationaler Primärschlüssel",
+            "Eine Azure-VM",
+            "Ein Diagrammtyp"
+        ],
+        "correct": "Der organisationsweite logische Data Lake in Microsoft Fabric",
+        "explanation": "OneLake stellt einen gemeinsamen Data-Lake-Ansatz für Fabric bereit."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wofür wird Power BI hauptsächlich verwendet?",
+        "options": [
+            "Datenanalyse, Berichte und Visualisierungen",
+            "Betriebssystem-Patching",
+            "Blob-Replikation",
+            "DNS-Auflösung"
+        ],
+        "correct": "Datenanalyse, Berichte und Visualisierungen",
+        "explanation": "Power BI dient zur Modellierung, Analyse und visuellen Darstellung von Daten."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich gut für Trends über die Zeit?",
+        "options": [
+            "Liniendiagramm",
+            "Kreisdiagramm für jede Sekunde",
+            "Ein einzelnes Textfeld",
+            "Logo"
+        ],
+        "correct": "Liniendiagramm",
+        "explanation": "Liniendiagramme machen zeitliche Entwicklungen gut sichtbar."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich gut zum Vergleich mehrerer Kategorien?",
+        "options": [
+            "Balken- oder Säulendiagramm",
+            "Audiodatei",
+            "SQL-Index",
+            "Blob Container"
+        ],
+        "correct": "Balken- oder Säulendiagramm",
+        "explanation": "Balken und Säulen ermöglichen einen klaren Größenvergleich zwischen Kategorien."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich, um einen einzelnen wichtigen Kennzahlenwert hervorzuheben?",
+        "options": [
+            "Karte/KPI-Visual",
+            "Scatterplot mit tausend Punkten",
+            "Dateifreigabe",
+            "Stored Procedure"
+        ],
+        "correct": "Karte/KPI-Visual",
+        "explanation": "Karten oder KPI-Visuals stellen einzelne Kennzahlen prominent dar."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich zur Untersuchung einer Beziehung zwischen zwei numerischen Variablen?",
+        "options": [
+            "Streudiagramm",
+            "Kreisdiagramm",
+            "Textfeld",
+            "Dateibaum"
+        ],
+        "correct": "Streudiagramm",
+        "explanation": "Scatterplots zeigen Muster oder Korrelationen zwischen zwei numerischen Größen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Dashboard in Power BI?",
+        "options": [
+            "Eine Oberfläche mit visuellen Elementen zur Überwachung wichtiger Informationen",
+            "Eine SQL-Transaktion",
+            "Ein Blob-Tier",
+            "Ein Dateiformat"
+        ],
+        "correct": "Eine Oberfläche mit visuellen Elementen zur Überwachung wichtiger Informationen",
+        "explanation": "Dashboards fassen wichtige Visualisierungen und Kennzahlen zusammen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein semantisches Modell in BI?",
+        "options": [
+            "Eine strukturierte Datenschicht mit Beziehungen, Berechnungen und Geschäftslogik für Analysen",
+            "Eine VM-Firewall",
+            "Ein Blob-Container",
+            "Ein Betriebssystem"
+        ],
+        "correct": "Eine strukturierte Datenschicht mit Beziehungen, Berechnungen und Geschäftslogik für Analysen",
+        "explanation": "Ein semantisches Modell macht Daten für Berichte verständlich und analytisch nutzbar."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist eine Dimension in einem analytischen Modell?",
+        "options": [
+            "Beschreibende Daten wie Kunde, Produkt oder Datum",
+            "Nur eine numerische Kennzahl",
+            "Eine Backup-Datei",
+            "Ein Netzwerkport"
+        ],
+        "correct": "Beschreibende Daten wie Kunde, Produkt oder Datum",
+        "explanation": "Dimensionen liefern Kontext, nach dem Kennzahlen analysiert werden."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist eine Kennzahl bzw. Measure?",
+        "options": [
+            "Eine berechnete numerische Größe für Analysen",
+            "Ein Benutzerkonto",
+            "Eine Bilddatei",
+            "Ein Fremdschlüssel zwingend ohne Zahlen"
+        ],
+        "correct": "Eine berechnete numerische Größe für Analysen",
+        "explanation": "Measures bilden aggregierte oder berechnete Werte wie Umsatz oder Durchschnitt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist eine Faktentabelle?",
+        "options": [
+            "Eine Tabelle mit messbaren Ereignissen und häufig Fremdschlüsseln zu Dimensionen",
+            "Eine Tabelle ausschließlich mit Benutzernamen",
+            "Eine Bildsammlung",
+            "Eine Firewallregel"
+        ],
+        "correct": "Eine Tabelle mit messbaren Ereignissen und häufig Fremdschlüsseln zu Dimensionen",
+        "explanation": "Faktentabellen speichern messbare Geschäftsvorgänge und verweisen häufig auf Dimensionen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was beschreibt ein Star Schema?",
+        "options": [
+            "Ein Modell mit zentraler Faktentabelle und verbundenen Dimensionstabellen",
+            "Ein Dateiformat für Videos",
+            "Eine Blob-Zugriffsebene",
+            "Eine SQL-VM-Größe"
+        ],
+        "correct": "Ein Modell mit zentraler Faktentabelle und verbundenen Dimensionstabellen",
+        "explanation": "Beim Sternschema sind Dimensionen direkt mit einer zentralen Faktentabelle verbunden."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Warum werden analytische Daten häufig historisiert?",
+        "options": [
+            "Damit Entwicklungen und Trends über Zeit untersucht werden können",
+            "Damit keine Abfragen möglich sind",
+            "Damit jede Zeile gelöscht wird",
+            "Damit SQL nicht benötigt wird"
+        ],
+        "correct": "Damit Entwicklungen und Trends über Zeit untersucht werden können",
+        "explanation": "Historische Daten ermöglichen Zeitvergleiche und Trendanalysen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Verarbeitung eignet sich eher für einen nächtlichen Import von Millionen Datensätzen?",
+        "options": [
+            "Batchverarbeitung",
+            "Echtzeitstreaming zwingend pro Millisekunde",
+            "Manuelle Eingabe",
+            "PowerPoint"
+        ],
+        "correct": "Batchverarbeitung",
+        "explanation": "Ein geplanter großer Import ist ein typischer Batch-Anwendungsfall."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Verarbeitung eignet sich eher für Live-Telemetrie eines Fahrzeugs?",
+        "options": [
+            "Stream Processing",
+            "Monatlicher Batch als einzige Option",
+            "Manuelle CSV-Eingabe",
+            "Normalisierung"
+        ],
+        "correct": "Stream Processing",
+        "explanation": "Live-Telemetrie besteht aus fortlaufend eintreffenden Ereignissen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Datenorchestrierung?",
+        "options": [
+            "Koordination und Steuerung mehrerer Schritte eines Datenworkflows",
+            "Nur das Zeichnen eines Diagramms",
+            "Löschen aller Daten",
+            "Erstellen eines Passworts"
+        ],
+        "correct": "Koordination und Steuerung mehrerer Schritte eines Datenworkflows",
+        "explanation": "Orchestrierung legt Abläufe, Abhängigkeiten und Ausführung von Datenprozessen fest."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Unternehmen möchte Daten aus SQL, CSV und einer API regelmäßig in einen Analysespeicher laden. Welcher Dienst passt zur Orchestrierung?",
+        "options": [
+            "Azure Data Factory",
+            "Azure Files",
+            "Azure DNS",
+            "Azure Virtual Desktop"
+        ],
+        "correct": "Azure Data Factory",
+        "explanation": "Data Factory kann Daten aus verschiedenen Quellen integrieren und Pipeline-Schritte orchestrieren."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Data-Science-Team möchte große Datenmengen mit Spark-Notebooks verarbeiten. Welcher Dienst passt?",
+        "options": [
+            "Azure Databricks",
+            "Azure Files",
+            "Azure Table Storage",
+            "Azure SQL Database als Dateifreigabe"
+        ],
+        "correct": "Azure Databricks",
+        "explanation": "Databricks bietet eine Spark-basierte Umgebung für Data Engineering und Data Science."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Team analysiert Milliarden Logereignisse und Zeitreihen. Welcher Dienst passt besonders?",
+        "options": [
+            "Azure Data Explorer",
+            "Azure Files",
+            "Azure Database for MySQL",
+            "PowerPoint"
+        ],
+        "correct": "Azure Data Explorer",
+        "explanation": "Data Explorer ist für schnelle Abfragen großer Log-, Ereignis- und Zeitreihendaten optimiert."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welcher Begriff beschreibt das Zusammenführen von Daten aus verschiedenen Quellen für Analysen?",
+        "options": [
+            "Datenintegration",
+            "Normalisierung ausschließlich",
+            "Blob Tiering",
+            "DNS Routing"
+        ],
+        "correct": "Datenintegration",
+        "explanation": "Datenintegration verbindet Daten aus unterschiedlichen Systemen für gemeinsame Verarbeitung oder Analyse."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Warum werden Daten vor einer Analyse transformiert?",
+        "options": [
+            "Um sie zu bereinigen, vereinheitlichen oder für das Zielmodell aufzubereiten",
+            "Um sie grundsätzlich unlesbar zu machen",
+            "Um alle Spalten zu löschen",
+            "Um das Netzwerk zu ersetzen"
+        ],
+        "correct": "Um sie zu bereinigen, vereinheitlichen oder für das Zielmodell aufzubereiten",
+        "explanation": "Transformation verbessert Form, Qualität und Nutzbarkeit von Daten für das Zielsystem."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Datenvisualisierung?",
+        "options": [
+            "Grafische Darstellung von Daten zur verständlichen Kommunikation von Mustern und Erkenntnissen",
+            "Eine Form der Datenbankverschlüsselung",
+            "Ein Blob-Tier",
+            "Eine SQL-Sicherung"
+        ],
+        "correct": "Grafische Darstellung von Daten zur verständlichen Kommunikation von Mustern und Erkenntnissen",
+        "explanation": "Visualisierungen helfen Menschen, Datenmuster und Kennzahlen schneller zu verstehen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Aussage beschreibt Analytics am besten?",
+        "options": [
+            "Daten werden untersucht, um Erkenntnisse, Muster und Entscheidungen zu unterstützen",
+            "Daten werden ausschließlich gespeichert und nie gelesen",
+            "Analytics ist nur Dateifreigabe",
+            "Analytics bedeutet nur Daten löschen"
+        ],
+        "correct": "Daten werden untersucht, um Erkenntnisse, Muster und Entscheidungen zu unterstützen",
+        "explanation": "Analytics nutzt Daten, um Informationen und Erkenntnisse für Entscheidungen zu gewinnen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Aufgabe gehört zu einem analytischen Workflow?",
+        "options": [
+            "Aggregieren von Verkaufsdaten nach Monat und Region",
+            "Speichern eines einzelnen Warenkorbs als Transaktion",
+            "Ändern eines Passworts",
+            "Installieren eines Druckers"
+        ],
+        "correct": "Aggregieren von Verkaufsdaten nach Monat und Region",
+        "explanation": "Aggregation nach Dimensionen ist ein typischer Analyseschritt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Warum ist die Wahl einer passenden Visualisierung wichtig?",
+        "options": [
+            "Damit die Aussage der Daten klar und korrekt vermittelt wird",
+            "Damit Daten automatisch relational werden",
+            "Damit kein Datenmodell nötig ist",
+            "Damit jede Kennzahl gleich aussieht"
+        ],
+        "correct": "Damit die Aussage der Daten klar und korrekt vermittelt wird",
+        "explanation": "Die Visualisierungsform sollte zur Fragestellung und zum Datentyp passen."
+    }
+]

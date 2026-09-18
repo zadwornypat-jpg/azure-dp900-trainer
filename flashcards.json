@@ -1,0 +1,332 @@
+[
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was sind strukturierte Daten?",
+        "answer": "Daten mit einem klar definierten Schema. Sie sind typischerweise in Zeilen und Spalten organisiert, zum Beispiel eine Kundentabelle mit customer_id, name und email."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was sind halbstrukturierte Daten?",
+        "answer": "Daten ohne starres Tabellenschema, die trotzdem Strukturmerkmale besitzen. Typische Beispiele sind JSON- und XML-Dateien."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was sind unstrukturierte Daten?",
+        "answer": "Daten ohne festes Schema, zum Beispiel Bilder, Videos, Audiodateien oder frei geschriebene Textdokumente."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist eine CSV-Datei?",
+        "answer": "Eine Textdatei, in der tabellarische Daten zeilenweise gespeichert und Werte durch ein Trennzeichen getrennt werden. CSV eignet sich gut zum einfachen Datenaustausch."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist JSON?",
+        "answer": "Ein textbasiertes Datenformat, das Daten als Schlüssel-Wert-Strukturen und verschachtelte Objekte darstellen kann. JSON ist ein typisches Beispiel für halbstrukturierte Daten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist Parquet?",
+        "answer": "Ein spaltenorientiertes Dateiformat, das besonders für analytische Workloads und große Datenmengen geeignet ist."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist eine Datenbank?",
+        "answer": "Ein organisierter Datenspeicher, der das Speichern, Abrufen und Verwalten von Daten ermöglicht."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was bedeutet OLTP?",
+        "answer": "Online Transaction Processing. OLTP-Systeme verarbeiten viele kurze Transaktionen wie Bestellungen, Reservierungen, Zahlungen oder Änderungen an Kundendaten."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist ein analytischer Workload?",
+        "answer": "Ein Workload, bei dem große Datenmengen untersucht, zusammengefasst und ausgewertet werden, um beispielsweise Trends, Muster und Kennzahlen zu erkennen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was ist der Hauptunterschied zwischen transaktionalen und analytischen Workloads?",
+        "answer": "Transaktionale Systeme bearbeiten viele einzelne Vorgänge und Änderungen. Analytische Systeme untersuchen häufig große Datenmengen, um Erkenntnisse und Trends zu gewinnen."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was macht ein Database Administrator (DBA)?",
+        "answer": "Ein DBA verwaltet Datenbanken und kümmert sich unter anderem um Verfügbarkeit, Sicherheit, Berechtigungen, Backups und Performance."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was macht ein Data Engineer?",
+        "answer": "Ein Data Engineer entwickelt und betreibt Datenpipelines und Datenplattformen. Er sorgt dafür, dass Daten aufgenommen, transformiert, gespeichert und für Analysen bereitgestellt werden."
+    },
+    {
+        "category": "1 – Core Data Concepts",
+        "question": "Was macht ein Data Analyst?",
+        "answer": "Ein Data Analyst untersucht Daten und erstellt daraus Berichte, Visualisierungen und Erkenntnisse für Entscheidungen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist eine relationale Datenbank?",
+        "answer": "Eine Datenbank, die Daten in Tabellen mit Zeilen und Spalten organisiert und Beziehungen zwischen Tabellen herstellen kann."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist ein Primary Key?",
+        "answer": "Ein Feld oder eine Kombination von Feldern, die jeden Datensatz einer Tabelle eindeutig identifiziert."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist ein Foreign Key?",
+        "answer": "Ein Feld, das auf einen Schlüssel einer anderen Tabelle verweist und dadurch eine Beziehung zwischen Tabellen herstellt."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was bedeutet Normalisierung?",
+        "answer": "Daten werden auf logisch zusammengehörige Tabellen verteilt, um unnötige Duplikate zu reduzieren und die Datenkonsistenz zu verbessern."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Warum werden relationale Datenbanken normalisiert?",
+        "answer": "Vor allem um Datenredundanz zu reduzieren, Inkonsistenzen zu vermeiden und Daten sauber strukturiert zu verwalten."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Wofür wird SELECT in SQL verwendet?",
+        "answer": "SELECT liest beziehungsweise fragt Daten aus einer oder mehreren Tabellen ab."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Wofür wird INSERT in SQL verwendet?",
+        "answer": "INSERT fügt neue Datensätze in eine Tabelle ein."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Wofür wird UPDATE in SQL verwendet?",
+        "answer": "UPDATE verändert vorhandene Datensätze."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Wofür wird DELETE in SQL verwendet?",
+        "answer": "DELETE entfernt Datensätze aus einer Tabelle."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist eine SQL View?",
+        "answer": "Eine gespeicherte Abfrage, die sich für Benutzer wie eine virtuelle Tabelle verwenden lässt."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist ein Index in einer Datenbank?",
+        "answer": "Eine Datenstruktur, die bestimmte Datenabfragen beschleunigen kann, ähnlich einem Register in einem Buch."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist Azure SQL Database?",
+        "answer": "Ein vollständig verwalteter relationaler Platform-as-a-Service-Datenbankdienst auf Basis der SQL-Server-Technologie."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was ist Azure SQL Managed Instance?",
+        "answer": "Ein verwalteter Azure-SQL-Dienst mit hoher Kompatibilität zu SQL Server. Er eignet sich unter anderem für die Migration bestehender SQL-Server-Anwendungen, die Instanzfunktionen benötigen."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Was bedeutet SQL Server on Azure Virtual Machines?",
+        "answer": "SQL Server läuft auf einer virtuellen Azure-Maschine. Man erhält viel Kontrolle über Betriebssystem und SQL Server, muss aber auch mehr selbst verwalten."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Azure SQL Database oder SQL Server auf einer Azure VM – wo liegt der wichtige Unterschied?",
+        "answer": "Azure SQL Database übernimmt einen großen Teil der Infrastrukturverwaltung als PaaS. Bei SQL Server auf einer Azure VM hat man mehr Kontrolle, trägt aber auch mehr Verwaltungsverantwortung."
+    },
+    {
+        "category": "2 – Relational Data",
+        "question": "Welche verwalteten Azure-Datenbankdienste gibt es für bekannte Open-Source-Datenbanksysteme?",
+        "answer": "Ein wichtiges Beispiel ist Azure Database for PostgreSQL. Bei DP-900 solltest du erkennen, dass Azure auch verwaltete Dienste für Open-Source-Datenbanksysteme anbietet."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was sind nicht-relationale Daten?",
+        "answer": "Daten, die nicht zwingend in klassischen relationalen Tabellen und Beziehungen organisiert werden. Dazu gehören beispielsweise Dokument-, Key-Value- und andere NoSQL-Modelle."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Storage?",
+        "answer": "Azure Storage ist Microsofts Cloud-Speicherplattform. Dazu gehören unter anderem Blob Storage, Azure Files, Queue Storage und Table Storage."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Blob Storage?",
+        "answer": "Ein Objektspeicher für große Mengen unstrukturierter Daten wie Bilder, Videos, Dokumente, Backups und Logdateien."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Wann würde man Azure Blob Storage verwenden?",
+        "answer": "Wenn große Mengen objektbasierter oder unstrukturierter Daten gespeichert werden sollen, beispielsweise Bilder einer Website, Videos, Dokumente oder Backups."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Files?",
+        "answer": "Ein Dienst für vollständig verwaltete Dateifreigaben in der Cloud, die ähnlich wie klassische Netzwerk-Dateifreigaben genutzt werden können."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Blob Storage oder Azure Files – was ist der Hauptunterschied?",
+        "answer": "Blob Storage ist primär Objektspeicher für unstrukturierte Daten. Azure Files stellt klassische gemeinsam nutzbare Dateifreigaben bereit."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Table Storage?",
+        "answer": "Ein NoSQL-Key-Attribute-Datenspeicher für große Mengen strukturierter, nicht-relationaler Daten."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was ist Azure Cosmos DB?",
+        "answer": "Ein vollständig verwalteter und verteilter NoSQL-Datenbankdienst von Microsoft, der für skalierbare Anwendungen mit niedriger Latenz entwickelt wurde."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Wann ist Azure Cosmos DB interessant?",
+        "answer": "Zum Beispiel bei global verteilten Anwendungen, die sehr skalierbare NoSQL-Datenspeicherung und schnelle Zugriffe benötigen."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Was bedeutet NoSQL?",
+        "answer": "Eine Gruppe nicht-relationaler Datenbankmodelle. NoSQL-Daten müssen nicht dem klassischen Tabellen- und Beziehungsmodell relationaler Datenbanken folgen."
+    },
+    {
+        "category": "3 – Non-relational Data",
+        "question": "Warum gibt es bei Azure Cosmos DB verschiedene APIs?",
+        "answer": "Die APIs stellen unterschiedliche Datenmodelle und Zugriffsmöglichkeiten bereit. Für DP-900 ist wichtig zu verstehen, dass Cosmos DB mehrere APIs beziehungsweise Datenmodelle unterstützt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Batch Processing?",
+        "answer": "Daten werden gesammelt und anschließend gemeinsam als Gruppe beziehungsweise Batch verarbeitet, beispielsweise jede Nacht."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Streaming beziehungsweise Real-Time Processing?",
+        "answer": "Daten werden kontinuierlich oder nahezu unmittelbar verarbeitet, während sie eintreffen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Batch oder Streaming: Eine Firma erstellt jede Nacht um 02:00 Uhr den Tagesbericht. Was ist das?",
+        "answer": "Batch Processing, weil die gesammelten Daten zu einem bestimmten Zeitpunkt gemeinsam verarbeitet werden."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Batch oder Streaming: Sensordaten sollen innerhalb weniger Sekunden ausgewertet werden. Was passt?",
+        "answer": "Streaming beziehungsweise Real-Time Processing, weil die Daten fortlaufend mit geringer Verzögerung verarbeitet werden sollen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Data Warehouse?",
+        "answer": "Ein zentraler analytischer Datenspeicher, der typischerweise strukturierte und aufbereitete Daten für Reporting und Analysen enthält."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Data Lake?",
+        "answer": "Ein skalierbarer Speicher für große Mengen an Rohdaten verschiedener Arten und Formate, darunter strukturierte, halbstrukturierte und unstrukturierte Daten."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Lakehouse?",
+        "answer": "Ein Ansatz, der Eigenschaften eines Data Lakes mit Funktionen eines Data Warehouses kombiniert."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Microsoft Fabric?",
+        "answer": "Eine integrierte Microsoft-Daten- und Analyseplattform, die verschiedene Workloads wie Data Engineering, Data Science, Data Warehousing, Real-Time Analytics und Business Intelligence zusammenführt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist OneLake?",
+        "answer": "OneLake ist die gemeinsame, organisationsweite Data-Lake-Grundlage von Microsoft Fabric."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Azure Databricks?",
+        "answer": "Eine auf Apache Spark basierende Analyseplattform für skalierbare Datenverarbeitung, Data Engineering, Data Science und Machine Learning."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wann ist Azure Databricks besonders interessant?",
+        "answer": "Wenn große Datenmengen verarbeitet oder komplexe Data-Engineering-, Analyse-, Data-Science- oder Machine-Learning-Workloads ausgeführt werden sollen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Azure Data Factory?",
+        "answer": "Ein Dienst für Datenintegration und die Orchestrierung von Datenpipelines. Er kann Datenbewegungen und Verarbeitungsschritte zwischen verschiedenen Datenquellen koordinieren."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was bedeutet Orchestrierung bei einer Datenpipeline?",
+        "answer": "Verschiedene Verarbeitungsschritte werden geplant, koordiniert und in der richtigen Reihenfolge automatisiert ausgeführt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Data Factory oder Databricks – was ist der grundlegende Unterschied?",
+        "answer": "Data Factory wird vor allem für Integration und Orchestrierung von Datenpipelines verwendet. Databricks ist auf skalierbare Datenverarbeitung, Data Engineering, Data Science und Machine Learning ausgerichtet."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Azure Data Explorer?",
+        "answer": "Ein Analysedienst für schnelle Abfragen großer Mengen von beispielsweise Log-, Telemetrie- und Zeitreihendaten."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Wann passt Azure Data Explorer besonders gut?",
+        "answer": "Bei großen Mengen schnell eintreffender Log-, Telemetrie-, Ereignis- oder Zeitreihendaten, die schnell untersucht werden sollen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Azure Synapse Analytics?",
+        "answer": "Ein Azure-Analysedienst, der unter anderem SQL-basierte Datenanalyse und Data-Warehouse-Szenarien unterstützt."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist Power BI?",
+        "answer": "Microsofts Plattform für Business Intelligence und Datenvisualisierung. Damit können Datenmodelle, Berichte und interaktive Visualisierungen erstellt werden."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Was ist ein Datenmodell in Power BI?",
+        "answer": "Eine strukturierte Darstellung von Daten, Tabellen, Beziehungen und Berechnungen, die als Grundlage für Analysen und Berichte dient."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich typischerweise für einen zeitlichen Trend?",
+        "answer": "Ein Liniendiagramm eignet sich typischerweise gut, um Entwicklungen über die Zeit darzustellen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich typischerweise zum Vergleich von Werten verschiedener Kategorien?",
+        "answer": "Ein Balken- oder Säulendiagramm eignet sich gut zum Vergleich von Kategorien."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Welche Visualisierung eignet sich, wenn eine einzelne wichtige Kennzahl hervorgehoben werden soll?",
+        "answer": "Eine Karte beziehungsweise KPI-Darstellung eignet sich gut, um einen einzelnen wichtigen Wert deutlich darzustellen."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Unternehmen möchte Daten aus mehreren Quellen regelmäßig einsammeln und Verarbeitungsschritte automatisieren. Welcher Dienst passt besonders gut?",
+        "answer": "Azure Data Factory, weil der Dienst für Datenintegration und die Orchestrierung von Datenpipelines ausgelegt ist."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Unternehmen muss große Mengen Telemetriedaten sehr schnell untersuchen. Welcher Dienst passt besonders gut?",
+        "answer": "Azure Data Explorer."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Data-Science-Team möchte große Datenmengen mit Apache Spark verarbeiten. Welcher Dienst passt?",
+        "answer": "Azure Databricks."
+    },
+    {
+        "category": "4 – Analytics",
+        "question": "Ein Management-Team möchte interaktive Dashboards und Berichte sehen. Welches Microsoft-Werkzeug passt?",
+        "answer": "Power BI."
+    }
+]
