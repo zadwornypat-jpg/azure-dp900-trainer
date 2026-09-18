@@ -796,7 +796,7 @@ answered_now = progress_now["total_answered"]
 correct_now = progress_now["total_correct"]
 quote_now = round(correct_now / answered_now * 100) if answered_now else 0
 
-# Navigation via URL parameter. This lets the visual dashboard itself be clickable.
+# Navigation stays inside the current Streamlit session.
 PAGE_MAP = {
     "start": "🏠 Start",
     "cards": "📚 Lernkarten",
@@ -806,8 +806,15 @@ PAGE_MAP = {
     "errors": "❌ Fehlertraining",
     "progress": "📊 Lernstand",
 }
-page_key = st.query_params.get("page", "start")
+if "page_key" not in st.session_state:
+    st.session_state.page_key = "start"
+
+page_key = st.session_state.page_key
 mode = PAGE_MAP.get(page_key, "🏠 Start")
+
+def go_to(page):
+    st.session_state.page_key = page
+    st.rerun()
 
 
 # ============================================================
@@ -994,8 +1001,7 @@ if mode != "🏠 Start":
 
     if nav_choice != mode:
         reverse_pages = {v: k for k, v in PAGE_MAP.items()}
-        st.query_params["page"] = reverse_pages[nav_choice]
-        st.rerun()
+        go_to(reverse_pages[nav_choice])
 
     page_copy = {
         "📚 Lernkarten": ("Lernkarten", "Wissen aufbauen. Karte für Karte."),
@@ -1041,89 +1047,112 @@ if mode == "🏠 Start":
           margin:0!important;
       }
       div[data-testid="stVerticalBlock"]{gap:0!important}
-      .exact-dashboard{
+
+      /* Dashboard screenshot */
+      .dashboard-shell{
           position:relative;
           width:100vw;
-          line-height:0;
+          aspect-ratio:1536 / 864;
+          background-size:100% auto;
+          background-repeat:no-repeat;
+          background-position:top left;
           overflow:hidden;
-          background:#102c46;
       }
-      .exact-dashboard img{
-          display:block;
-          width:100vw;
-          height:auto;
-          margin:0;
-          padding:0;
-      }
-      .hotspot{
-          position:absolute;
-          display:block;
-          z-index:20;
-          border-radius:12px;
-          text-decoration:none!important;
-          background:rgba(255,255,255,0);
-      }
-      .hotspot:hover{
-          background:rgba(255,255,255,.07);
-          box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);
-      }
-      /* Sidebar hotspots — coordinates measured from the supplied target */
-      .hs-start{left:.7%;top:15.8%;width:9.8%;height:6.1%}
-      .hs-cards-side{left:.7%;top:22.0%;width:9.8%;height:5.7%}
-      .hs-practice-side{left:.7%;top:28.0%;width:9.8%;height:5.7%}
-      .hs-exam-side{left:.7%;top:34.0%;width:9.8%;height:5.7%}
-      .hs-sim-side{left:.7%;top:40.0%;width:9.8%;height:5.7%}
-      .hs-errors-side{left:.7%;top:46.0%;width:9.8%;height:5.7%}
-      .hs-progress-side{left:.7%;top:52.0%;width:9.8%;height:5.7%}
 
-      /* Main six cards */
-      .hs-cards{left:12.9%;top:45.4%;width:13.0%;height:25.5%}
-      .hs-practice{left:26.5%;top:45.4%;width:13.0%;height:25.5%}
-      .hs-exam{left:40.1%;top:45.4%;width:13.0%;height:25.5%}
-      .hs-sim{left:53.7%;top:45.4%;width:13.0%;height:25.5%}
-      .hs-errors{left:67.3%;top:45.4%;width:13.0%;height:25.5%}
-      .hs-progress{left:80.9%;top:45.4%;width:13.0%;height:25.5%}
+      /* Streamlit buttons are the real clickable hotspots.
+         Their labels are invisible because the labels already exist in the image. */
+      .dashboard-shell div[data-testid="stButton"]{
+          position:absolute!important;
+          margin:0!important;
+          padding:0!important;
+          z-index:50!important;
+      }
+      .dashboard-shell div[data-testid="stButton"] button{
+          width:100%!important;
+          height:100%!important;
+          min-height:0!important;
+          padding:0!important;
+          margin:0!important;
+          border:0!important;
+          border-radius:12px!important;
+          background:transparent!important;
+          box-shadow:none!important;
+          color:transparent!important;
+          font-size:0!important;
+          opacity:1!important;
+      }
+      .dashboard-shell div[data-testid="stButton"] button:hover{
+          background:rgba(255,255,255,.07)!important;
+          box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)!important;
+      }
+
+      /* 7 sidebar targets + 6 main cards + logout */
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(1){left:.7%;top:15.8%;width:9.8%;height:6.1%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(2){left:.7%;top:22.0%;width:9.8%;height:5.7%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(3){left:.7%;top:28.0%;width:9.8%;height:5.7%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(4){left:.7%;top:34.0%;width:9.8%;height:5.7%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(5){left:.7%;top:40.0%;width:9.8%;height:5.7%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(6){left:.7%;top:46.0%;width:9.8%;height:5.7%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(7){left:.7%;top:52.0%;width:9.8%;height:5.7%}
+
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(8){left:12.9%;top:45.4%;width:13.0%;height:25.5%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(9){left:26.5%;top:45.4%;width:13.0%;height:25.5%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(10){left:40.1%;top:45.4%;width:13.0%;height:25.5%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(11){left:53.7%;top:45.4%;width:13.0%;height:25.5%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(12){left:67.3%;top:45.4%;width:13.0%;height:25.5%}
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(13){left:80.9%;top:45.4%;width:13.0%;height:25.5%}
+
+      /* Logout target in the lower sidebar. */
+      .dashboard-shell div[data-testid="stButton"]:nth-of-type(14){left:.7%;top:91%;width:9.8%;height:5.5%}
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown(f"""
-    <div class="exact-dashboard">
-      <img src="data:image/jpeg;base64,{image_b64}" alt="Azure Data Lab Dashboard">
-    </div>
-    """, unsafe_allow_html=True)
+    # Open one HTML wrapper. The Streamlit buttons rendered below become children
+    # of this dashboard shell, so CSS can position them directly over the image.
+    st.markdown(
+        f'<div class="dashboard-shell" style="background-image:url(data:image/jpeg;base64,{image_b64});">',
+        unsafe_allow_html=True
+    )
 
-    # WICHTIG: Keine normalen HTML-Links mehr. Sie laden die App komplett neu
-    # und würden dadurch die Streamlit-Session (inkl. Login) verlieren.
-    # Diese echten Streamlit-Buttons navigieren innerhalb derselben Session.
-    st.markdown("### Bereich öffnen")
-    nav_cols = st.columns(6)
-    dashboard_nav = [
-        ("📚 Lernkarten", "cards"),
-        ("🧠 Übungstest", "practice"),
-        ("🎯 Prüfung", "exam"),
-        ("🔥 Simulation", "simulation"),
-        ("❌ Fehlertraining", "errors"),
-        ("📊 Lernstand", "progress"),
-    ]
-    for col, (label, target_page) in zip(nav_cols, dashboard_nav):
-        with col:
-            if st.button(label, key=f"dashboard_nav_{target_page}", use_container_width=True):
-                st.query_params["page"] = target_page
-                st.rerun()
+    # Sidebar: Start + six sections
+    if st.button("Start", key="hs_start"):
+        go_to("start")
+    if st.button("Lernkarten", key="hs_cards_side"):
+        go_to("cards")
+    if st.button("Übungstest", key="hs_practice_side"):
+        go_to("practice")
+    if st.button("Prüfung", key="hs_exam_side"):
+        go_to("exam")
+    if st.button("Simulation", key="hs_sim_side"):
+        go_to("simulation")
+    if st.button("Fehlertraining", key="hs_errors_side"):
+        go_to("errors")
+    if st.button("Lernstand", key="hs_progress_side"):
+        go_to("progress")
 
-    user_email = getattr(current_user(), "email", None)
-    left, right = st.columns([5, 1])
-    with left:
-        if user_email:
-            st.caption(f"👤 Eingeloggt als {user_email}")
-    with right:
-        if st.button("🚪 Ausloggen", key="dashboard_logout", use_container_width=True):
-            try:
-                get_supabase().auth.sign_out()
-            except Exception:
-                pass
-            st.session_state.clear()
-            st.rerun()
+    # Six large dashboard cards
+    if st.button("Lernkarten öffnen", key="hs_cards_main"):
+        go_to("cards")
+    if st.button("Übungstest öffnen", key="hs_practice_main"):
+        go_to("practice")
+    if st.button("Prüfung öffnen", key="hs_exam_main"):
+        go_to("exam")
+    if st.button("Simulation öffnen", key="hs_sim_main"):
+        go_to("simulation")
+    if st.button("Fehlertraining öffnen", key="hs_errors_main"):
+        go_to("errors")
+    if st.button("Lernstand öffnen", key="hs_progress_main"):
+        go_to("progress")
+
+    if st.button("Ausloggen", key="hs_logout"):
+        try:
+            get_supabase().auth.sign_out()
+        except Exception:
+            pass
+        st.session_state.clear()
+        st.rerun()
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # ============================================================
 # LERNKARTEN
