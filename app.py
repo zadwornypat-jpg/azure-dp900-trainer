@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import streamlit as st
 from supabase import create_client
+from streamlit_image_coordinates import streamlit_image_coordinates
 
 st.set_page_config(page_title="Azure DP-900 Trainer", page_icon="☁️", layout="wide")
 
@@ -49,21 +50,21 @@ def load_progress():
             .table("user_progress")
             .select("total_answered,total_correct,questions")
             .eq("user_id", user.id)
-            .maybe_single()
+            .limit(1)
             .execute()
         )
-        row = response.data
-        if not row:
+        rows = response.data if response is not None and response.data else []
+        if not rows:
             data = default_progress()
             save_progress(data)
             return data
 
-        data = {
+        row = rows[0]
+        return {
             "total_answered": row.get("total_answered", 0),
             "total_correct": row.get("total_correct", 0),
             "questions": row.get("questions") or {},
         }
-        return data
     except Exception as exc:
         st.error(f"Lernstand konnte nicht geladen werden: {exc}")
         return default_progress()
@@ -1026,133 +1027,65 @@ if mode != "🏠 Start":
 # ============================================================
 
 if mode == "🏠 Start":
-    import base64
+    from PIL import Image
 
     target_path = BASE_DIR / "dashboard_background.jpeg"
     if not target_path.exists():
         st.error("dashboard_background.jpeg fehlt im Projektordner.")
         st.stop()
 
-    image_b64 = base64.b64encode(target_path.read_bytes()).decode("utf-8")
-
     st.markdown("""
     <style>
       header[data-testid="stHeader"]{display:none!important}
       .stApp:before{display:none!important}
       .stApp{background:#102c46!important}
-      .block-container{
-          max-width:none!important;
-          width:100vw!important;
-          padding:0!important;
-          margin:0!important;
-      }
+      .block-container{max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
       div[data-testid="stVerticalBlock"]{gap:0!important}
-
-      /* Dashboard screenshot */
-      .dashboard-shell{
-          position:relative;
-          width:100vw;
-          aspect-ratio:1536 / 864;
-          background-size:100% auto;
-          background-repeat:no-repeat;
-          background-position:top left;
-          overflow:hidden;
-      }
-
-      /* Streamlit buttons are the real clickable hotspots.
-         Their labels are invisible because the labels already exist in the image. */
-      .dashboard-shell div[data-testid="stButton"]{
-          position:absolute!important;
-          margin:0!important;
-          padding:0!important;
-          z-index:50!important;
-      }
-      .dashboard-shell div[data-testid="stButton"] button{
-          width:100%!important;
-          height:100%!important;
-          min-height:0!important;
-          padding:0!important;
-          margin:0!important;
-          border:0!important;
-          border-radius:12px!important;
-          background:transparent!important;
-          box-shadow:none!important;
-          color:transparent!important;
-          font-size:0!important;
-          opacity:1!important;
-      }
-      .dashboard-shell div[data-testid="stButton"] button:hover{
-          background:rgba(255,255,255,.07)!important;
-          box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)!important;
-      }
-
-      /* 7 sidebar targets + 6 main cards + logout */
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(1){left:.7%;top:15.8%;width:9.8%;height:6.1%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(2){left:.7%;top:22.0%;width:9.8%;height:5.7%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(3){left:.7%;top:28.0%;width:9.8%;height:5.7%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(4){left:.7%;top:34.0%;width:9.8%;height:5.7%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(5){left:.7%;top:40.0%;width:9.8%;height:5.7%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(6){left:.7%;top:46.0%;width:9.8%;height:5.7%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(7){left:.7%;top:52.0%;width:9.8%;height:5.7%}
-
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(8){left:12.9%;top:45.4%;width:13.0%;height:25.5%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(9){left:26.5%;top:45.4%;width:13.0%;height:25.5%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(10){left:40.1%;top:45.4%;width:13.0%;height:25.5%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(11){left:53.7%;top:45.4%;width:13.0%;height:25.5%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(12){left:67.3%;top:45.4%;width:13.0%;height:25.5%}
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(13){left:80.9%;top:45.4%;width:13.0%;height:25.5%}
-
-      /* Logout target in the lower sidebar. */
-      .dashboard-shell div[data-testid="stButton"]:nth-of-type(14){left:.7%;top:91%;width:9.8%;height:5.5%}
     </style>
     """, unsafe_allow_html=True)
 
-    # Open one HTML wrapper. The Streamlit buttons rendered below become children
-    # of this dashboard shell, so CSS can position them directly over the image.
-    st.markdown(
-        f'<div class="dashboard-shell" style="background-image:url(data:image/jpeg;base64,{image_b64});">',
-        unsafe_allow_html=True
+    dashboard_image = Image.open(target_path)
+    original_w, original_h = dashboard_image.size
+
+    click = streamlit_image_coordinates(
+        dashboard_image,
+        key="dashboard_click_map",
+        use_column_width="always",
     )
 
-    # Sidebar: Start + six sections
-    if st.button("Start", key="hs_start"):
-        go_to("start")
-    if st.button("Lernkarten", key="hs_cards_side"):
-        go_to("cards")
-    if st.button("Übungstest", key="hs_practice_side"):
-        go_to("practice")
-    if st.button("Prüfung", key="hs_exam_side"):
-        go_to("exam")
-    if st.button("Simulation", key="hs_sim_side"):
-        go_to("simulation")
-    if st.button("Fehlertraining", key="hs_errors_side"):
-        go_to("errors")
-    if st.button("Lernstand", key="hs_progress_side"):
-        go_to("progress")
+    if click:
+        x = click["x"] / original_w
+        y = click["y"] / original_h
 
-    # Six large dashboard cards
-    if st.button("Lernkarten öffnen", key="hs_cards_main"):
-        go_to("cards")
-    if st.button("Übungstest öffnen", key="hs_practice_main"):
-        go_to("practice")
-    if st.button("Prüfung öffnen", key="hs_exam_main"):
-        go_to("exam")
-    if st.button("Simulation öffnen", key="hs_sim_main"):
-        go_to("simulation")
-    if st.button("Fehlertraining öffnen", key="hs_errors_main"):
-        go_to("errors")
-    if st.button("Lernstand öffnen", key="hs_progress_main"):
-        go_to("progress")
+        if 0.007 <= x <= 0.105:
+            if 0.158 <= y <= 0.219: go_to("start")
+            elif 0.220 <= y <= 0.277: go_to("cards")
+            elif 0.280 <= y <= 0.337: go_to("practice")
+            elif 0.340 <= y <= 0.397: go_to("exam")
+            elif 0.400 <= y <= 0.457: go_to("simulation")
+            elif 0.460 <= y <= 0.517: go_to("errors")
+            elif 0.520 <= y <= 0.577: go_to("progress")
+        elif 0.454 <= y <= 0.709:
+            if 0.129 <= x <= 0.259: go_to("cards")
+            elif 0.265 <= x <= 0.395: go_to("practice")
+            elif 0.401 <= x <= 0.531: go_to("exam")
+            elif 0.537 <= x <= 0.667: go_to("simulation")
+            elif 0.673 <= x <= 0.803: go_to("errors")
+            elif 0.809 <= x <= 0.939: go_to("progress")
 
-    if st.button("Ausloggen", key="hs_logout"):
-        try:
-            get_supabase().auth.sign_out()
-        except Exception:
-            pass
-        st.session_state.clear()
-        st.rerun()
-
-    st.markdown("</div>", unsafe_allow_html=True)
+    user_email = getattr(current_user(), "email", None)
+    c1, c2 = st.columns([5, 1])
+    with c1:
+        if user_email:
+            st.caption(f"👤 Eingeloggt als {user_email}")
+    with c2:
+        if st.button("🚪 Ausloggen", key="dashboard_logout", use_container_width=True):
+            try:
+                get_supabase().auth.sign_out()
+            except Exception:
+                pass
+            st.session_state.clear()
+            st.rerun()
 
 # ============================================================
 # LERNKARTEN
