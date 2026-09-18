@@ -1,15 +1,16 @@
 import json
 import random
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 import streamlit as st
+from supabase import create_client
 
 st.set_page_config(page_title="Azure DP-900 Trainer", page_icon="☁️", layout="wide")
 
 BASE_DIR = Path(__file__).parent
 FLASHCARDS_FILE = BASE_DIR / "flashcards.json"
 QUESTIONS_FILE = BASE_DIR / "exam_questions.json"
-PROGRESS_FILE = BASE_DIR / "progress.json"
 
 @st.cache_data
 def load_json(path):
@@ -19,24 +20,71 @@ def load_json(path):
 def default_progress():
     return {"total_answered": 0, "total_correct": 0, "questions": {}}
 
+
+def get_supabase():
+    """One Supabase client per Streamlit browser session."""
+    if "supabase_client" not in st.session_state:
+        try:
+            url = st.secrets["SUPABASE_URL"]
+            key = st.secrets["SUPABASE_KEY"]
+        except Exception:
+            st.error("Supabase-Verbindung fehlt. Bitte SUPABASE_URL und SUPABASE_KEY in den Streamlit Secrets hinterlegen.")
+            st.stop()
+        st.session_state.supabase_client = create_client(url, key)
+    return st.session_state.supabase_client
+
+
+def current_user():
+    return st.session_state.get("auth_user")
+
+
 def load_progress():
+    user = current_user()
+    if user is None:
+        return default_progress()
+
     try:
-        with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        if not isinstance(data, dict):
-            return default_progress()
-        data.setdefault("total_answered", 0)
-        data.setdefault("total_correct", 0)
-        data.setdefault("questions", {})
+        response = (
+            get_supabase()
+            .table("user_progress")
+            .select("total_answered,total_correct,questions")
+            .eq("user_id", user.id)
+            .maybe_single()
+            .execute()
+        )
+        row = response.data
+        if not row:
+            data = default_progress()
+            save_progress(data)
+            return data
+
+        data = {
+            "total_answered": row.get("total_answered", 0),
+            "total_correct": row.get("total_correct", 0),
+            "questions": row.get("questions") or {},
+        }
         return data
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = default_progress()
-        save_progress(data)
-        return data
+    except Exception as exc:
+        st.error(f"Lernstand konnte nicht geladen werden: {exc}")
+        return default_progress()
+
 
 def save_progress(data):
-    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    user = current_user()
+    if user is None:
+        return
+
+    payload = {
+        "user_id": user.id,
+        "total_answered": int(data.get("total_answered", 0)),
+        "total_correct": int(data.get("total_correct", 0)),
+        "questions": data.get("questions", {}),
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+    try:
+        get_supabase().table("user_progress").upsert(payload).execute()
+    except Exception as exc:
+        st.error(f"Lernstand konnte nicht gespeichert werden: {exc}")
 
 def question_id(question):
     return question["question"]
@@ -98,6 +146,82 @@ def reset_errors():
 
 flashcards = load_json(FLASHCARDS_FILE)
 exam_questions = load_json(QUESTIONS_FILE)
+
+# ============================================================
+# LOGIN / REGISTRIERUNG
+# ============================================================
+supabase = get_supabase()
+
+if "auth_user" not in st.session_state:
+    st.session_state.auth_user = None
+
+if st.session_state.auth_user is None:
+    st.markdown("## ☁️ Azure DP-900 Trainer")
+    st.write("Melde dich an, damit dein persönlicher Lernstand dauerhaft gespeichert wird.")
+
+    login_tab, register_tab = st.tabs(["🔐 Einloggen", "✨ Registrieren"])
+
+    with login_tab:
+        with st.form("login_form"):
+            login_email = st.text_input("E-Mail", key="login_email")
+            login_password = st.text_input("Passwort", type="password", key="login_password")
+            login_submit = st.form_submit_button("Einloggen", use_container_width=True)
+
+        if login_submit:
+            if not login_email or not login_password:
+                st.warning("Bitte E-Mail und Passwort eingeben.")
+            else:
+                try:
+                    result = supabase.auth.sign_in_with_password({
+                        "email": login_email.strip(),
+                        "password": login_password,
+                    })
+                    if result.user and result.session:
+                        st.session_state.auth_user = result.user
+                        st.success("Erfolgreich eingeloggt.")
+                        st.rerun()
+                    else:
+                        st.error("Login nicht möglich.")
+                except Exception as exc:
+                    st.error(f"Login fehlgeschlagen: {exc}")
+
+    with register_tab:
+        with st.form("register_form"):
+            register_email = st.text_input("E-Mail", key="register_email")
+            register_password = st.text_input(
+                "Passwort", type="password", key="register_password",
+                help="Verwende mindestens 6 Zeichen."
+            )
+            register_password_2 = st.text_input(
+                "Passwort wiederholen", type="password", key="register_password_2"
+            )
+            register_submit = st.form_submit_button("Account erstellen", use_container_width=True)
+
+        if register_submit:
+            if not register_email or not register_password:
+                st.warning("Bitte E-Mail und Passwort eingeben.")
+            elif register_password != register_password_2:
+                st.error("Die beiden Passwörter stimmen nicht überein.")
+            elif len(register_password) < 6:
+                st.error("Das Passwort muss mindestens 6 Zeichen lang sein.")
+            else:
+                try:
+                    result = supabase.auth.sign_up({
+                        "email": register_email.strip(),
+                        "password": register_password,
+                    })
+                    if result.session and result.user:
+                        st.session_state.auth_user = result.user
+                        st.success("Account erstellt – du bist eingeloggt.")
+                        st.rerun()
+                    else:
+                        st.success(
+                            "Account erstellt. Bitte bestätige jetzt die E-Mail von Supabase und logge dich danach hier ein."
+                        )
+                except Exception as exc:
+                    st.error(f"Registrierung fehlgeschlagen: {exc}")
+
+    st.stop()
 
 defaults = {
     "cards": flashcards.copy(),
@@ -837,6 +961,16 @@ if mode != "🏠 Start":
     st.sidebar.markdown("---")
     st.sidebar.markdown("*Better Data.  \nBrighter Opportunities.*")
     st.sidebar.caption("Microsoft Azure")
+    user_email = getattr(current_user(), "email", None)
+    if user_email:
+        st.sidebar.caption(f"👤 {user_email}")
+    if st.sidebar.button("🚪 Ausloggen", use_container_width=True):
+        try:
+            get_supabase().auth.sign_out()
+        except Exception:
+            pass
+        st.session_state.clear()
+        st.rerun()
 
     if nav_choice != mode:
         reverse_pages = {v: k for k, v in PAGE_MAP.items()}
