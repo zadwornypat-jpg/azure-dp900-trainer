@@ -1089,23 +1089,41 @@ if mode == "🏠 Start":
     st.markdown(f"""
     <div class="exact-dashboard">
       <img src="data:image/jpeg;base64,{image_b64}" alt="Azure Data Lab Dashboard">
-
-      <a class="hotspot hs-start" href="?page=start" title="Start"></a>
-      <a class="hotspot hs-cards-side" href="?page=cards" title="Lernkarten"></a>
-      <a class="hotspot hs-practice-side" href="?page=practice" title="Übungstest"></a>
-      <a class="hotspot hs-exam-side" href="?page=exam" title="Prüfung"></a>
-      <a class="hotspot hs-sim-side" href="?page=simulation" title="Simulation"></a>
-      <a class="hotspot hs-errors-side" href="?page=errors" title="Fehlertraining"></a>
-      <a class="hotspot hs-progress-side" href="?page=progress" title="Lernstand"></a>
-
-      <a class="hotspot hs-cards" href="?page=cards" title="Lernkarten"></a>
-      <a class="hotspot hs-practice" href="?page=practice" title="Übungstest"></a>
-      <a class="hotspot hs-exam" href="?page=exam" title="Prüfung"></a>
-      <a class="hotspot hs-sim" href="?page=simulation" title="Simulation"></a>
-      <a class="hotspot hs-errors" href="?page=errors" title="Fehlertraining"></a>
-      <a class="hotspot hs-progress" href="?page=progress" title="Lernstand"></a>
     </div>
     """, unsafe_allow_html=True)
+
+    # WICHTIG: Keine normalen HTML-Links mehr. Sie laden die App komplett neu
+    # und würden dadurch die Streamlit-Session (inkl. Login) verlieren.
+    # Diese echten Streamlit-Buttons navigieren innerhalb derselben Session.
+    st.markdown("### Bereich öffnen")
+    nav_cols = st.columns(6)
+    dashboard_nav = [
+        ("📚 Lernkarten", "cards"),
+        ("🧠 Übungstest", "practice"),
+        ("🎯 Prüfung", "exam"),
+        ("🔥 Simulation", "simulation"),
+        ("❌ Fehlertraining", "errors"),
+        ("📊 Lernstand", "progress"),
+    ]
+    for col, (label, target_page) in zip(nav_cols, dashboard_nav):
+        with col:
+            if st.button(label, key=f"dashboard_nav_{target_page}", use_container_width=True):
+                st.query_params["page"] = target_page
+                st.rerun()
+
+    user_email = getattr(current_user(), "email", None)
+    left, right = st.columns([5, 1])
+    with left:
+        if user_email:
+            st.caption(f"👤 Eingeloggt als {user_email}")
+    with right:
+        if st.button("🚪 Ausloggen", key="dashboard_logout", use_container_width=True):
+            try:
+                get_supabase().auth.sign_out()
+            except Exception:
+                pass
+            st.session_state.clear()
+            st.rerun()
 
 # ============================================================
 # LERNKARTEN
