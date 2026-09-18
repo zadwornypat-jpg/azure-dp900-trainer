@@ -1123,11 +1123,10 @@ if mode == "🏠 Start":
       .st-key-hotspot_menu_progress{left:.7%!important;top:52.0%!important;width:9.8%!important;height:5.7%!important}
 
       /* SIX LARGE CARDS.
-         Streamlit places the absolute button wrappers slightly above/left of
-         the visible image cards. This correction aligns the interactive
-         layer with the artwork without changing the dashboard image. */
+         Fine alignment: midpoint between the first (too high) and second
+         (too low) test. This moves only the interactive wrappers, not the image. */
       .st-key-dashboard_overlay [class*="st-key-hotspot_card_"]{
-          transform:translate(8px,37px)!important;
+          transform:translate(4px,18px)!important;
       }
       .st-key-hotspot_card_cards{left:12.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
       .st-key-hotspot_card_practice{left:26.5%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
