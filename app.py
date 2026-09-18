@@ -1131,17 +1131,9 @@ if mode == "🏠 Start":
       .st-key-hotspot_card_cards{left:12.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
       .st-key-hotspot_card_practice{left:26.5%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
       .st-key-hotspot_card_exam{left:40.1%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
-      .st-key-hotspot_card_simulation{left:53.7%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
-      .st-key-hotspot_card_errors{left:67.3%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
-      .st-key-hotspot_card_progress{left:80.9%!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
-
-      /* Cards 4–6 need their own horizontal correction.
-         Cards 1–3 stay exactly where they are. */
-      .st-key-hotspot_card_simulation,
-      .st-key-hotspot_card_errors,
-      .st-key-hotspot_card_progress{
-          transform:translate(50px,18px)!important;
-      }
+      .st-key-hotspot_card_simulation{left:calc(53.7% + 50px)!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_errors{left:calc(67.3% + 50px)!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
+      .st-key-hotspot_card_progress{left:calc(80.9% + 50px)!important;top:45.4%!important;width:13.0%!important;height:25.5%!important}
     </style>
     """, unsafe_allow_html=True)
 
