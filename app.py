@@ -156,9 +156,29 @@ if "auth_user" not in st.session_state:
     st.session_state.auth_user = None
 
 if st.session_state.auth_user is None:
-    st.markdown("## ☁️ Azure DP-900 Trainer")
-    st.write("Melde dich an, damit dein persönlicher Lernstand dauerhaft gespeichert wird.")
-
+    import base64
+    login_bg_path = BASE_DIR / "dashboard_background.jpeg"
+    login_bg_b64 = base64.b64encode(login_bg_path.read_bytes()).decode("utf-8") if login_bg_path.exists() else ""
+    bg_rule = f'url("data:image/jpeg;base64,{login_bg_b64}")' if login_bg_b64 else "linear-gradient(135deg,#102f4b,#5a5aa0 58%,#b67879)"
+    st.markdown(f"""
+    <style>
+    header[data-testid="stHeader"]{{display:none!important}}
+    #MainMenu,footer{{visibility:hidden!important}}
+    .stApp{{background:linear-gradient(rgba(8,27,46,.50),rgba(8,27,46,.62)),{{bg_rule}} center center / cover no-repeat fixed!important}}
+    .block-container{{max-width:560px!important;padding:7vh 1.4rem 3rem!important}}
+    .login-brand{{text-align:center;color:white;margin-bottom:1rem;text-shadow:0 4px 22px rgba(0,0,0,.38)}}
+    .login-brand .cloud{{font-size:2.35rem;line-height:1}}
+    .login-brand h1{{color:white!important;font-family:Georgia,serif!important;font-size:2.65rem!important;font-weight:500!important;margin:.35rem 0 .12rem!important}}
+    .login-brand .dp{{color:#f8dfd2;font-family:Georgia,serif;font-style:italic;font-size:1.05rem}}
+    div[data-testid="stTabs"]{{background:rgba(247,250,255,.94)!important;border:1px solid rgba(255,255,255,.78)!important;border-radius:22px!important;padding:1rem 1.35rem 1.35rem!important;box-shadow:0 26px 70px rgba(4,18,34,.42)!important;backdrop-filter:blur(18px)}}
+    button[data-baseweb="tab"]{{font-weight:750!important}}
+    div[data-testid="stTextInput"] input{{background:rgba(255,255,255,.96)!important;border:1px solid rgba(34,68,99,.16)!important;border-radius:12px!important}}
+    .stFormSubmitButton>button{{width:100%!important;border:0!important;border-radius:999px!important;min-height:46px!important;color:white!important;font-weight:750!important;background:linear-gradient(90deg,#6654df,#299edc)!important;box-shadow:0 9px 20px rgba(72,81,184,.24)!important}}
+    div[data-testid="stAlert"]{{border-radius:13px!important}}
+    @media(max-width:650px){{.block-container{{padding:3vh 1rem 2rem!important}}.login-brand h1{{font-size:2.05rem!important}}}}
+    </style>
+    <div class="login-brand"><div class="cloud">☁️</div><h1>Azure Data Lab</h1><div class="dp">DP-900 · Learn smarter. Pass confidently.</div></div>
+    """, unsafe_allow_html=True)
     login_tab, register_tab = st.tabs(["🔐 Einloggen", "✨ Registrieren"])
 
     with login_tab:
