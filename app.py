@@ -165,31 +165,53 @@ if st.session_state.auth_user is None:
     <style>
     header[data-testid="stHeader"]{{display:none!important}}
     #MainMenu,footer{{visibility:hidden!important}}
-    .stApp{{background:linear-gradient(rgba(8,27,46,.50),rgba(8,27,46,.62)),{bg_rule} center center / cover no-repeat fixed!important}}
-    .block-container{{max-width:560px!important;padding:7vh 1.4rem 3rem!important}}
-    .login-brand{{text-align:center;color:white;margin-bottom:1rem;text-shadow:0 4px 22px rgba(0,0,0,.38)}}
-    .login-brand .cloud{{font-size:2.35rem;line-height:1}}
-    .login-brand h1{{color:white!important;font-family:Georgia,serif!important;font-size:2.65rem!important;font-weight:500!important;margin:.35rem 0 .12rem!important}}
-    .login-brand .dp{{color:#f8dfd2;font-family:Georgia,serif;font-style:italic;font-size:1.05rem}}
-    div[data-testid="stTabs"]{{background:rgba(247,250,255,.94)!important;border:1px solid rgba(255,255,255,.78)!important;border-radius:22px!important;padding:1rem 1.35rem 1.35rem!important;box-shadow:0 26px 70px rgba(4,18,34,.42)!important;backdrop-filter:blur(18px)}}
-    button[data-baseweb="tab"]{{font-weight:750!important}}
+
+    .stApp{{
+        background:
+            linear-gradient(rgba(8,27,46,.50),rgba(8,27,46,.62)),
+            {bg_rule} center center / cover no-repeat fixed!important;
+    }}
+
+    .block-container{{
+        max-width:560px!important;
+        padding:12vh 1.4rem 3rem!important;
+    }}
+
+    div[data-testid="stTabs"]{{
+        background:rgba(247,250,255,.94)!important;
+        border:1px solid rgba(255,255,255,.78)!important;
+        border-radius:22px!important;
+        padding:1rem 1.35rem 1.35rem!important;
+        box-shadow:0 26px 70px rgba(4,18,34,.42)!important;
+        backdrop-filter:blur(18px);
+    }}
+
+    button[data-baseweb="tab"]{{
+        font-weight:750!important;
+    }}
+
     div[data-testid="stTextInput"] input{{
-    background:rgba(255,255,255,.96)!important;
-    color:#17344e!important;
-    -webkit-text-fill-color:#17344e!important;
-    caret-color:#17344e!important;
-    border:1px solid rgba(34,68,99,.16)!important;
-    border-radius:12px!important;
-}}
-div[data-testid="stTextInput"] input::placeholder{{
-    color:#6b7f91!important;
-    -webkit-text-fill-color:#6b7f91!important;
-    opacity:1!important;
-}}
-    @media(max-width:650px){{.block-container{{padding:3vh 1rem 2rem!important}}.login-brand h1{{font-size:2.05rem!important}}}}
+        background:rgba(255,255,255,.96)!important;
+        color:#17344e!important;
+        -webkit-text-fill-color:#17344e!important;
+        caret-color:#17344e!important;
+        border:1px solid rgba(34,68,99,.16)!important;
+        border-radius:12px!important;
+    }}
+
+    div[data-testid="stTextInput"] input::placeholder{{
+        color:#6b7f91!important;
+        -webkit-text-fill-color:#6b7f91!important;
+        opacity:1!important;
+    }}
+
+    @media(max-width:650px){{
+        .block-container{{
+            padding:5vh 1rem 2rem!important;
+        }}
+    }}
     </style>
-    <div class="login-brand"><div class="cloud">☁️</div><h1>Azure Data Lab</h1><div class="dp">DP-900 · Learn smarter. Pass confidently.</div></div>
-        """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     login_tab, register_tab = st.tabs(["🔐 Einloggen", "✨ Registrieren"])
 
     with login_tab:
