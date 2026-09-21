@@ -165,7 +165,7 @@ if st.session_state.auth_user is None:
     <style>
     header[data-testid="stHeader"]{{display:none!important}}
     #MainMenu,footer{{visibility:hidden!important}}
-    .stApp{{background:linear-gradient(rgba(8,27,46,.50),rgba(8,27,46,.62)),{{bg_rule}} center center / cover no-repeat fixed!important}}
+    .stApp{{background:linear-gradient(rgba(8,27,46,.50),rgba(8,27,46,.62)),{bg_rule} center center / cover no-repeat fixed!important}}
     .block-container{{max-width:560px!important;padding:7vh 1.4rem 3rem!important}}
     .login-brand{{text-align:center;color:white;margin-bottom:1rem;text-shadow:0 4px 22px rgba(0,0,0,.38)}}
     .login-brand .cloud{{font-size:2.35rem;line-height:1}}
