@@ -1,0 +1,12 @@
+Copyright © 2026 Patricia Christiano. Alle Rechte vorbehalten.
+
+Dieses Repository und seine Inhalte sind ein persönliches Lern- und Portfolio-Projekt.
+
+Es wird keine Open-Source-Lizenz erteilt.
+
+Ohne vorherige ausdrückliche schriftliche Genehmigung der Rechteinhaberin ist die Nutzung,
+Vervielfältigung, Bearbeitung, Verbreitung, Weitergabe oder Wiederveröffentlichung des
+Quellcodes oder wesentlicher Teile davon nicht gestattet.
+
+Die öffentliche Zugänglichkeit eines GitHub-Repositories stellt keine Erteilung von
+Nutzungsrechten dar.
