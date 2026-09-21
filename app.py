@@ -189,7 +189,7 @@ div[data-testid="stTextInput"] input::placeholder{{
     @media(max-width:650px){{.block-container{{padding:3vh 1rem 2rem!important}}.login-brand h1{{font-size:2.05rem!important}}}}
     </style>
     <div class="login-brand"><div class="cloud">☁️</div><h1>Azure Data Lab</h1><div class="dp">DP-900 · Learn smarter. Pass confidently.</div></div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
     login_tab, register_tab = st.tabs(["🔐 Einloggen", "✨ Registrieren"])
 
     with login_tab:
